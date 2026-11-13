@@ -1,0 +1,1223 @@
+<!-- 2026 개인경력개발계획서 · 작성 화면 v6 -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026년 개인경력개발계획서 작성</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&display=swap">
+<style>
+:root{
+  --paper:#EEF0F3; --card:#FFFFFF; --ink:#15202E; --body:#36414F; --mute:#78838F;
+  --rule:#D5DBE2; --rule2:#E7EBEF;
+  --l1:#0052A4;   /* 1단계 */
+  --l4:#00A5DE;   /* 2단계 */
+  --l3:#EF7C1C;   /* 도달점 */
+  --stop:#8A94A1; /* 현재 */
+  --req:#C8102E;
+  --l1-w:#E6EEF6; --l4-w:#E3F4FB; --l3-w:#FCEFE2;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{font-size:16px;-webkit-text-size-adjust:100%}
+body{
+  background:var(--paper); color:var(--body);
+  font-family:Pretendard,'Pretendard Variable','Apple SD Gothic Neo','Malgun Gothic',sans-serif;
+  font-size:.875rem; line-height:1.6; -webkit-font-smoothing:antialiased;
+  padding-bottom:84px;
+}
+h1,h2,h3,h4,.serif{
+  font-family:'Gowun Batang','Noto Serif KR',Batang,바탕,serif;
+  color:var(--ink); font-weight:700; letter-spacing:-.01em;
+}
+button{font:inherit;cursor:pointer;border:none;background:none;color:inherit;text-align:left}
+input,select,textarea{font:inherit;color:var(--ink)}
+:focus-visible{outline:2px solid var(--l1);outline-offset:2px}
+b{font-weight:700;color:var(--ink)}
+
+/* ── 머리말 ── */
+.hdr{background:var(--card);border-bottom:1px solid var(--rule)}
+.hdr-top{max-width:980px;margin:0 auto;padding:26px 28px 24px;display:flex;align-items:center;gap:16px}
+.hdr .logo{height:30px;width:auto}
+.hdr h1{font-size:1.3rem;line-height:1.25}
+.hdr h1 small{display:block;font-family:Pretendard,sans-serif;font-size:.74rem;font-weight:500;color:var(--mute);letter-spacing:0;margin-top:3px}
+ .stn.s1.on i{border-color:var(--l1)}  .stn.s3.on i{border-color:var(--l3)}
+
+.wrap{max-width:980px;margin:0 auto;padding:24px 28px 40px}
+
+/* ── 안내 블록 ── */
+.rule{background:var(--card);border:1px solid var(--rule);border-left:3px solid var(--l1);padding:18px 22px;margin-bottom:18px}
+.rule h2{font-size:1.05rem;margin-bottom:5px}
+.rule .lead{font-size:.84rem;color:var(--body)}
+.rule ul{list-style:none;margin-top:13px;display:grid;gap:7px}
+.rule li{font-size:.81rem;padding-left:14px;position:relative;color:var(--body)}
+.rule li:before{content:"";position:absolute;left:0;top:.56em;width:5px;height:5px;background:var(--l1);border-radius:50%}
+.rule li{display:grid;grid-template-columns:88px 1fr;gap:10px;align-items:baseline}
+.rule li b{color:var(--ink)}
+.rule li span{color:var(--body)}
+@media (max-width:560px){.rule li{grid-template-columns:1fr;gap:1px}}
+
+/* ── 진행 단계 ── */
+.flow{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-bottom:6px;
+  background:var(--card);border:1px solid var(--rule)}
+.step{position:relative;padding:14px 16px;border-right:1px solid var(--rule2);display:block;width:100%;
+  font:inherit;color:inherit;background:none}
+.step:last-child{border-right:none}
+.step .no{display:block;font-size:.68rem;font-weight:700;color:var(--mute);letter-spacing:.04em;margin-bottom:4px}
+.step .no:after{content:"단계"}
+.step b{display:block;font-size:.86rem;color:var(--ink);margin-bottom:2px}
+.step>span:not(.no):not(.when):not(.self){display:block;font-size:.75rem;color:var(--mute);line-height:1.45}
+.step .when{display:block;margin-top:8px;font-size:.72rem;font-weight:600;color:var(--l1)}
+.step .self{position:absolute;top:14px;right:16px;font-size:.68rem;font-weight:700;color:var(--l3)}
+.step.now{background:var(--l3-w);box-shadow:inset 0 0 0 2px var(--l3);z-index:1}
+.step.now .no{color:var(--l3)}
+.step.now b{color:#8A4A0E}
+.step.now .when{color:#8A4A0E;font-weight:800}
+button.step{cursor:pointer}
+button.step:hover{background:var(--l1-w)}
+button.step:hover b{color:var(--l1)}
+
+/* ── 섹션 = 노선 위의 역 ── */
+.sect{position:relative;padding-left:34px;margin-bottom:0}
+.sect:before{content:"";position:absolute;left:5px;top:0;bottom:-18px;width:2px;background:var(--rule)}
+.sect:last-of-type:before{bottom:auto;height:26px}
+.sect>h3{position:relative;font-size:1rem;padding:22px 0 10px;display:flex;align-items:baseline;gap:9px}
+.sect>h3 .n{position:absolute;left:-34px;top:21px;width:13px;height:13px;border-radius:50%;
+  background:var(--card);border:3px solid var(--l1);font-size:0}
+.sect>h3 .tag{font-family:Pretendard,sans-serif;font-size:.73rem;font-weight:500;color:var(--mute);letter-spacing:0}
+.sbody{background:var(--card);border:1px solid var(--rule);padding:20px 22px;margin-bottom:18px}
+
+.sticker{font-family:Pretendard,sans-serif;font-size:.7rem;font-weight:700;letter-spacing:0;
+  color:#fff;background:var(--l3);padding:3px 9px;border-radius:2px;position:relative;top:-2px;white-space:nowrap}
+.midref{margin-top:12px;border-top:1px solid var(--rule);padding-top:11px}
+.midref summary{font-size:.78rem;font-weight:700;color:var(--l3);cursor:pointer;list-style:none;display:inline-flex;align-items:center;gap:5px}
+.midref summary::-webkit-details-marker{display:none}
+.midref summary:before{content:"＋";font-weight:400}
+.midref[open] summary:before{content:"−"}
+.midref-body{margin-top:10px;display:grid;gap:8px}
+.mrow{display:grid;grid-template-columns:104px 1fr;gap:10px;font-size:.78rem;align-items:baseline;
+  padding-bottom:7px;border-bottom:1px dashed var(--rule2)}
+.mrow:last-child{border-bottom:none;padding-bottom:0}
+.mrow b{color:var(--ink)}
+.mrow span{color:var(--body);line-height:1.55}
+.mrow em{font-style:normal;color:var(--mute)}
+@media (max-width:560px){.mrow{grid-template-columns:1fr;gap:1px}}
+.advice{font-size:.82rem;color:var(--body);background:var(--card);border:1px solid var(--l3);
+  border-left:3px solid var(--l3);padding:11px 15px;margin-bottom:10px;line-height:1.6}
+.advice b{display:block;color:var(--l3);margin-bottom:2px}
+.gdesc{font-size:.82rem;color:var(--body);background:var(--l1-w);padding:11px 15px;margin-bottom:16px;line-height:1.6}
+
+/* ── 입력 ── */
+.grid{display:grid;gap:14px 18px}
+.c2{grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr))}
+.c4{grid-template-columns:repeat(auto-fit,minmax(min(100%,164px),1fr))}
+.f{display:flex;flex-direction:column;gap:5px;min-width:0}
+.f label{font-size:.76rem;font-weight:700;color:var(--ink)}
+.f label .req{color:var(--req);margin-left:2px}
+.f label .op{font-weight:500;color:var(--mute);margin-left:6px}
+.f input,.f select,.f textarea{
+  font-size:.85rem;padding:9px 11px;background:var(--card);
+  border:1px solid var(--rule);border-radius:2px;width:100%;transition:border-color .15s,box-shadow .15s}
+.f input:focus,.f select:focus,.f textarea:focus{outline:none;border-color:var(--l1);box-shadow:inset 0 -2px 0 var(--l1)}
+.f input[readonly]{background:#F5F7F9;color:var(--mute);border-style:dashed}
+.f textarea{resize:vertical;min-height:70px;line-height:1.6}
+.f .cnt{font-size:.7rem;color:var(--mute);text-align:right}
+.f .note{font-size:.74rem;color:var(--mute);line-height:1.5}
+.mebox{display:none}
+.mebox.show{display:grid;grid-template-columns:auto 1fr;gap:3px 13px;align-items:baseline;
+  margin-top:14px;padding:12px 15px;border-left:3px solid var(--stop);background:#F5F7F9}
+.mebox .tag{grid-row:span 2;align-self:center;font-size:.72rem;font-weight:800;color:#fff;
+  background:var(--stop);padding:4px 11px;border-radius:2px;white-space:nowrap}
+.mebox b{font-size:.86rem;color:var(--ink)}
+.mebox span{font-size:.78rem;color:var(--body);line-height:1.5}
+.mebox.due{border-left-color:var(--l3);background:var(--l3-w)}
+.mebox.due .tag{background:var(--l3)} .mebox.due b{color:#8A4A0E}
+.mebox.soon{border-left-color:var(--l4);background:var(--l4-w)}
+.mebox.soon .tag{background:var(--l4)} .mebox.soon b{color:#0A4C77}
+.mebox.warn{border-left-color:var(--req);background:#FBEBED}
+.mebox.warn .tag{background:var(--req)} .mebox.warn b{color:#8E1C2B}
+.mebox .rec{display:inline-block;margin-left:8px;font-size:.68rem;font-weight:800;color:#fff;
+  background:var(--req);padding:2px 8px;border-radius:2px;vertical-align:2px;letter-spacing:.02em}
+.f.invalid > input,.f.invalid > select,.f.invalid > textarea{
+  border-color:var(--req)!important;box-shadow:inset 0 -2px 0 var(--req);background:#FFF8F8}
+.f.invalid > label{color:var(--req)}
+.missflag{font-size:.74rem;font-weight:700;color:var(--req);line-height:1.4;
+  display:flex;align-items:center;gap:5px}
+.missflag:before{content:"!";display:inline-flex;width:14px;height:14px;border-radius:50%;
+  background:var(--req);color:#fff;font-size:.6rem;font-weight:800;align-items:center;justify-content:center;flex:none}
+.idchk{font-size:.75rem;font-weight:600;line-height:1.5;min-height:17px}
+.idchk.ok{color:var(--l1)} .idchk.bad{color:var(--req)}
+.idchk.warn{color:var(--l3)} .idchk.wait{color:var(--mute);font-weight:400}
+input.badid{border-color:var(--req)!important;box-shadow:inset 0 -2px 0 var(--req)}
+
+/* ── 경로 카드 = 역 ── */
+.pathcard{position:relative;border:1px solid var(--rule);border-left:3px solid var(--rule);
+  padding:17px 20px 18px;margin-bottom:12px;background:var(--card)}
+.pathcard .stg{display:inline-block;font-size:.7rem;font-weight:700;color:#fff;
+  padding:2px 9px;margin-bottom:9px;border-radius:2px;background:var(--stop)}
+.pathcard .stg small{font-weight:500;opacity:.85;margin-left:5px}
+.pathcard h4{font-size:.86rem;font-weight:700;margin-bottom:13px;line-height:1.45}
+.pathcard.now{border-left-color:var(--stop);background:#F7F8FA}
+.pathcard.s1{border-left-color:var(--l1)}  .pathcard.s1 .stg{background:var(--l1)}
+.pathcard.s2{border-left-color:var(--l4)}  .pathcard.s2 .stg{background:var(--l4)}
+.pathcard.goal{border-left-color:var(--l3);background:var(--l3-w)} .pathcard.goal .stg{background:var(--l3)}
+
+.dirtog{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:11px}
+.dirtog.three{grid-template-columns:repeat(3,1fr)}
+.dirtog .opt{border:1px solid var(--rule);border-radius:2px;padding:9px 11px;text-align:center;
+  font-size:.8rem;background:var(--card);line-height:1.4;transition:border-color .15s,background .15s}
+.dirtog .opt:hover{border-color:var(--l1)}
+.dirtog .opt i{display:block;font-style:normal;font-size:.71rem;font-weight:500;color:var(--mute);margin-top:2px}
+.dirtog .opt.on{border-color:var(--l1);background:var(--l1);color:#fff;font-weight:700}
+.dirtog .opt.on i{color:rgba(255,255,255,.85)}
+.pathcard.s2 .dirtog .opt:hover{border-color:var(--l4)}
+.pathcard.s2 .dirtog .opt.on{border-color:var(--l4);background:var(--l4)}
+.pathcard.goal .dirtog .opt:hover{border-color:var(--l3)}
+.pathcard.goal .dirtog .opt.on{border-color:var(--l3);background:var(--l3)}
+
+.hintbox{font-size:.79rem;background:#F5F7F9;border-left:2px solid var(--rule);padding:9px 13px;
+  margin-top:10px;display:none;line-height:1.55}
+.hintbox.show{display:block}
+.hintbox .ht{display:block;font-weight:700;color:var(--ink);font-size:.74rem;margin-bottom:4px}
+.hintbox .chip{display:inline-block;background:var(--card);border:1px solid var(--rule);
+  padding:2px 8px;margin:2px 4px 0 0;font-size:.76rem;border-radius:2px}
+.hintbox .chip b{color:var(--l1)}
+.hintbox .lv{display:block;margin-top:5px;color:var(--body)}
+.hintbox .lv u{text-decoration:none;font-weight:700;color:var(--l1);margin-right:5px}
+.eduzone{border:1px solid var(--rule);padding:13px 15px 15px;margin-bottom:11px;background:#fff}
+.eduzone.manual{background:#FAFBFC}
+.eduzone .zh{display:flex;align-items:center;gap:9px;font-size:.84rem;font-weight:700;color:var(--ink);margin-bottom:11px}
+.eduzone .zb{font-size:.68rem;font-weight:800;color:#fff;padding:3px 9px;border-radius:2px}
+.eduzone .zb.auto{background:var(--l4)} .eduzone .zb.man{background:var(--stop)}
+.zempty{font-size:.79rem;color:var(--mute);padding:9px 11px;background:#F5F7F9;border:1px dashed var(--rule)}
+.eduzone.manual .edugroup:not(.auto){background:#fff}
+.edugroup:not(.auto){border:1px solid var(--rule);background:#FAFBFC;padding:11px 12px 12px;margin-bottom:9px}
+.esrc{display:inline-flex;margin-bottom:9px;border:1px solid var(--rule);border-radius:2px;overflow:hidden;background:#fff}
+.esrc button{font-size:.74rem;font-weight:600;color:var(--mute);padding:5px 12px;background:var(--card);
+  border-right:1px solid var(--rule);transition:background .15s,color .15s}
+.esrc button:last-child{border-right:none}
+.esrc button:hover{color:var(--l1);background:var(--l1-w)}
+.esrc button.on{background:var(--l1);color:#fff}
+
+
+.certbar{display:flex;align-items:center;gap:11px;margin-bottom:11px;flex-wrap:wrap}
+.certbtn{font-size:.82rem;font-weight:700;color:#fff;background:var(--l4);border-radius:2px;
+  padding:9px 16px;text-align:center;white-space:nowrap}
+.certbtn:hover{background:#0A8CBD}
+.certbtn:disabled{opacity:.5;cursor:not-allowed}
+.certhint{font-size:.75rem;color:var(--mute);line-height:1.45;flex:1;min-width:200px}
+.certnote{display:none}
+.certnote.show{display:block;font-size:.79rem;color:#0A4C77;background:var(--l4-w);
+  border-left:3px solid var(--l4);padding:9px 13px;margin-bottom:11px;line-height:1.55}
+.certnote b{color:#0A4C77}
+.certnote.wait{background:#F3F5F7;border-left-color:var(--rule);color:var(--mute)}
+.certnote.wait b{color:var(--body)}
+.certnote.none{background:var(--l3-w);border-left-color:var(--l3);color:#7A4A12}
+.certnote.none b{color:#7A4A12}
+.certnote.err{background:var(--req-w,#FBEBED);border-left-color:var(--req);color:#8E1C2B}
+.certnote.err b{color:var(--req)}
+.edugroup.auto{padding-bottom:0;border-bottom:none;margin-bottom:7px}
+.autorow{display:flex;align-items:center;gap:9px;background:#F5F8FA;border:1px solid var(--rule);
+  padding:8px 10px;font-size:.82rem}
+.autorow .badge{flex:none;font-size:.68rem;font-weight:800;color:#fff;padding:2px 8px;border-radius:2px;white-space:nowrap}
+.autorow .badge.s1{background:var(--l1)}
+.autorow .badge.s2{background:var(--l4)}
+.autorow b{flex:1;min-width:0;font-weight:600;color:var(--ink);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.autorow .hrs{flex:none;font-weight:700;color:var(--l1);font-size:.78rem}
+.autorow .per{flex:none;color:var(--mute);font-size:.73rem}
+.autorow .rm{flex:none;width:26px;height:26px;border:1px solid var(--rule);background:#fff;
+  color:var(--mute);border-radius:2px;text-align:center;line-height:1}
+.autorow .rm:hover{color:var(--req);border-color:var(--req)}
+@media (max-width:620px){.autorow .per{display:none}}
+.review{display:grid;gap:7px;margin-bottom:16px}
+.review{margin-bottom:16px}
+.rvflow{position:relative;padding:2px 0}
+.rvflow:before{content:"";position:absolute;left:43px;top:21px;bottom:21px;width:2px;
+  background:linear-gradient(180deg,var(--stop) 0%,var(--l1) 33%,var(--l4) 66%,var(--l3) 100%);opacity:.45}
+.rvrow{display:flex;align-items:center;gap:14px;padding:9px 0;font-size:.85rem}
+.rvrow .dt{position:relative;z-index:1;flex:none;width:88px;height:24px;line-height:24px;
+  font-size:.74rem;font-weight:800;color:#fff;background:var(--stop);text-align:center;border-radius:2px}
+.rvrow.s1 .dt{background:var(--l1)} .rvrow.s2 .dt{background:var(--l4)} .rvrow.gl .dt{background:var(--l3)}
+.rvrow .dd{color:var(--ink);font-weight:600;line-height:1.5}
+.rvrow .dd em{font-style:normal;font-weight:400;color:var(--mute);font-size:.79rem}
+.rvrow.miss .dd{color:var(--req);font-weight:700}
+.rvetc{margin-top:10px;padding-top:10px;border-top:1px dashed var(--rule)}
+.rvetc .rvrow{padding:5px 0}
+.rvetc .rvrow .dt{background:#fff;color:var(--mute);border:1px solid var(--rule);font-weight:700;line-height:22px}
+@media (max-width:560px){.rvflow:before{display:none} .rvrow{align-items:flex-start} .rvrow .dt{width:74px}}
+.privacy{border:1px solid var(--rule);background:#FAFBFC;padding:14px 16px;margin-bottom:12px}
+.privacy h4{font-size:.82rem;margin-bottom:9px}
+.privacy dl{display:grid;gap:5px;margin-bottom:9px}
+.privacy dl > div{display:grid;grid-template-columns:76px 1fr;gap:11px;font-size:.79rem;align-items:baseline}
+.privacy dt{font-weight:700;color:var(--ink)}
+.privacy dd{color:var(--body);line-height:1.5}
+.privacy .pnote{font-size:.77rem;color:var(--mute);line-height:1.55;padding-top:8px;border-top:1px dashed var(--rule)}
+.wantbox{display:flex;align-items:flex-start;gap:12px;margin-top:16px;padding:15px 17px;
+  border:2px solid var(--l3);background:var(--l3-w);cursor:pointer;transition:.15s}
+.wantbox:hover{background:#FAE3CC}
+.wantbox input{width:20px;height:20px;accent-color:var(--l3);margin-top:1px;flex:none;cursor:pointer}
+.wantbox .wt b{display:block;font-size:.92rem;font-weight:800;color:#8A4A0E;margin-bottom:2px}
+.wantbox .wt em{font-style:normal;font-size:.79rem;color:#9A6228;line-height:1.5}
+.wantbox:has(input:checked){background:var(--l3);border-color:var(--l3)}
+.wantbox:has(input:checked) .wt b{color:#fff}
+.wantbox:has(input:checked) .wt em{color:rgba(255,255,255,.9)}
+.prio{margin-top:11px;padding:13px 16px;border:1px solid var(--rule);border-left:3px solid var(--req);
+  background:#FDF7F8;font-size:.81rem;color:var(--body);line-height:1.6}
+.prio b{display:block;color:var(--req);font-size:.86rem;margin-bottom:3px}
+.prio span{display:block;margin-top:7px;padding-top:7px;border-top:1px dashed #E8CDD2;color:var(--mute);font-size:.78rem}
+.chk{display:flex;align-items:flex-start;gap:9px;font-size:.84rem;padding:9px 12px;
+  border:1px solid var(--rule);margin-bottom:7px;cursor:pointer;background:#fff}
+.chk:hover{border-color:var(--l1)}
+.chk input{width:17px;height:17px;accent-color:var(--l1);margin-top:1px;flex:none;cursor:pointer}
+.chk.main{border-color:var(--l1);background:var(--l1-w)}
+.chk.main b{color:var(--l1)}
+.chk span em{display:block;font-style:normal;font-size:.78rem;font-weight:400;color:var(--body);
+  margin-top:3px;line-height:1.5}
+.chk.main span em{color:#28527F}
+.licrow{display:grid;grid-template-columns:88px 1fr 150px 134px 36px;gap:8px;margin-bottom:8px;align-items:center}
+.licrow select,.licrow input{font-size:.85rem;padding:9px 11px;border:1px solid var(--rule);border-radius:2px;background:#fff;width:100%}
+.licrow select:focus,.licrow input:focus{outline:none;border-color:var(--l1);box-shadow:inset 0 -2px 0 var(--l1)}
+.licrow .rm{border:1px solid var(--rule);background:#fff;border-radius:2px;color:var(--req);height:37px;text-align:center}
+.licrow .rm:hover{border-color:var(--req)}
+@media (max-width:760px){.licrow{grid-template-columns:1fr 1fr;gap:6px}.licrow .rm{grid-column:2}}
+.edurow{display:grid;grid-template-columns:1fr 112px 36px;gap:8px;margin-bottom:0;align-items:start}
+.edurow .rm{border:1px solid var(--rule);background:var(--card);border-radius:2px;font-size:1rem;
+  color:var(--req);height:37px;text-align:center}
+.edurow .rm:hover{border-color:var(--req)}
+.addbtn{font-size:.8rem;font-weight:700;color:var(--l1);background:var(--card);
+  border:1px dashed var(--l1);border-radius:2px;padding:9px 14px;width:100%;text-align:center}
+.addbtn:hover{background:var(--l1-w)}
+
+/* ── 하단 바 ── */
+.savebar{position:fixed;bottom:0;left:0;right:0;background:var(--card);border-top:1px solid var(--rule);
+  padding:11px 28px;display:flex;align-items:center;gap:10px;z-index:60}
+.savebar .info{font-size:.76rem;color:var(--mute)}
+.savebar .sp{flex:1}
+.savebar button{font-size:.84rem;font-weight:700;padding:10px 22px;border-radius:2px;
+  border:1px solid var(--rule);background:var(--card);text-align:center}
+.savebar .save{color:var(--l1);border-color:var(--l1)}
+.savebar .submit{background:var(--l1);color:#fff;border-color:var(--l1)}
+.savebar button:disabled{opacity:.45;cursor:not-allowed}
+.toast{position:fixed;bottom:74px;left:50%;transform:translateX(-50%) translateY(14px);
+  background:var(--ink);color:#fff;padding:11px 20px;border-radius:2px;font-size:.83rem;font-weight:600;
+  opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;z-index:100;max-width:90vw}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+.toast.ok{background:var(--l1)} .toast.err{background:var(--req)}
+
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+@media (max-width:760px){
+  .flow{grid-template-columns:1fr 1fr}
+  .step:nth-child(2n){border-right:none}
+  .step:nth-child(-n+2){border-bottom:1px solid var(--rule2)}
+  .dirtog,.dirtog.three{grid-template-columns:1fr}
+  .wrap,.hdr-top,.route{padding-left:16px;padding-right:16px}
+  .sect{padding-left:24px}
+  .sect>h3 .n{left:-24px}
+}
+@media print{
+  .hdr,.route,.addbtn,.edurow .rm,.flow,.savebar,.toast,.idchk{display:none!important}
+  body{background:#fff;padding:0;font-size:10.5pt}
+  .wrap{max-width:100%;padding:0}
+  .sect{padding-left:0;break-inside:avoid}
+  .sect:before,.sect>h3 .n{display:none}
+  .sbody,.pathcard,.rule{border-color:#999;break-inside:avoid}
+  .pathcard .stg{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .dirtog .opt:not(.on){display:none}
+  .dirtog .opt.on{border:1px solid #333;color:#000;background:#eee}
+}
+</style>
+</head>
+<body>
+
+<header class="hdr">
+  <div class="hdr-top">
+    <img class="logo" alt="서울관광재단" src="data:image/png;base64,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">
+    <h1>2026년 개인경력개발계획서<small>직무 중심으로 다음 경로를 그려 인사팀에 제출합니다</small></h1>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="rule">
+    <h2>개인경력개발계획서</h2>
+    <p class="lead">직무 중심 성장경로를 설계하고, 재단이 이를 <b>육성·배치 검토의 참고자료</b>로 활용하기 위한 것입니다. 기재 내용이 특정 부서 배치를 확약하지는 않습니다.</p>
+    <ul>
+      <li><b>언제 내나</b><span><b>11월 16일(월) ~ 23일(월)</b> 입니다. 정기전보 시기는 따로 안내합니다.</span></li>
+      <li><b>어디에 내나</b><span>인사팀에 바로 냅니다. 부서장을 거치지 않습니다.</span></li>
+      <li><b>어디에 쓰이나</b><span>교육훈련 계획을 세우고, 경력개발 면담을 하고, 배치를 검토할 때 참고합니다.</span></li>
+    </ul>
+  </div>
+
+  <div class="flow">
+    <div class="step"><span class="no">1</span><b>직무분류 확인</b><span>희망 직무와 표준경력경로를 확인</span><span class="when">9월</span></div>
+    <div class="step"><span class="no">2</span><b>선행교육 수강</b><span>희망 직무의 과정 1개를 수강</span><span class="when">9~10월</span></div>
+    <div class="step now"><span class="no">3</span><span class="self">현재 화면</span><b>계획서 작성</b><span>성장경로와 역량개발 계획 작성</span><span class="when">11. 16.(월) ~ 23.(월)</span></div>
+    <div class="step"><span class="no">4</span><b>제출하고 면담</b><span>면담 신청자 중 선정해 개별 면담</span><span class="when">11월 말 ~ 12월 초 예정</span></div>
+  </div>
+  <div style="font-size:.72rem;color:var(--muted);line-height:1.45;margin:-3px 0 14px">* 면담 일정은 운영 상황에 따라 조정될 수 있습니다.</div>
+
+  <div class="sect">
+    <h3><span class="n">1</span> 기본 정보 <span class="tag">최소 항목만 작성</span></h3>
+    <div class="sbody">
+      <div class="gdesc">소속, 입사일, 현 부서 근무기간은 인사기록에서 가져오므로 적지 않아도 됩니다.<br>직급 목록은 구분을 고르면 바뀝니다.</div>
+      <div class="grid c4">
+        <div class="f"><label>사번<span class="req">*</span></label><input id="empno" placeholder="예: FT0060" autocapitalize="characters" spellcheck="false" style="text-transform:uppercase"><div class="idchk" id="idchk"></div></div>
+        <div class="f"><label>성명<span class="req">*</span></label><input id="name" placeholder="홍길동"></div>
+        <div class="f"><label>구분<span class="req">*</span></label>
+          <select id="gubun"><option value="일반직">일반직</option><option value="전문직">전문직</option></select>
+          <div class="note" id="gubunNote"></div></div>
+        <div class="f"><label>직급<span class="req">*</span></label>
+          <select id="grade"><option value="">선택</option></select>
+          <div class="note" id="gradeNote"></div></div>
+      </div>
+      <div class="grid c2" style="margin-top:13px">
+        <div class="f"><label>현 담당 직무<span class="req">*</span></label>
+          <select id="curJob"><option value="">선택</option></select>
+          <div class="note" id="jobNote"></div></div>
+        <div class="f"><label>수행 부서<span class="op">직무 선택 시 자동 표시</span></label>
+          <input id="curTeam" readonly placeholder="현 담당 직무를 먼저 선택하세요"></div>
+      </div>
+      <div class="mebox" id="meBox"></div>
+    </div>
+  </div>
+
+  <div class="sect">
+    <h3><span class="n">2</span> 경력 단계와 유형 <span class="tag">규정 별표1·3 기준</span></h3>
+    <div class="sbody">
+      <div class="gdesc">경력단계와 유형은 아래 성장경로 설계에서 안내되는 <b>표준경력경로</b>의 기준이 됩니다.</div>
+      <div class="grid c2">
+        <div class="f"><label>경력 단계<span class="req">*</span><span class="op">직급에 따라 제안되며 바꿀 수 있습니다</span></label>
+          <select id="stage">
+            <option value="">선택</option>
+            <option value="탐색기">탐색기 (5~6급, 2년마다 이동하며 직무를 탐색)</option>
+            <option value="심화기">심화기 (3~4급, 4년마다 이동하며 전문역량을 심화)</option>
+                      </select>
+          <div class="note" id="stageNote"></div></div>
+        <div class="f"><label>경력 유형<span class="op">현 담당 직무에 따라 자동 표시</span></label>
+          <input id="ctype" readonly placeholder="현 담당 직무를 먼저 선택하세요">
+          <div class="note" id="ctypeNote"></div></div>
+      </div>
+      <div class="hintbox" id="stdBox"></div>
+    </div>
+  </div>
+
+  <div class="sect">
+    <h3><span class="n">3</span> 직무 중심 성장경로 <span class="tag">가고 싶은 곳이 아닌 성장할 경로</span></h3>
+    <div class="sbody">
+      <div class="gdesc">부서가 아니라 <b>직무 중분류</b> 기준으로, <b>거쳐 갈 순서</b>대로 작성합니다.<br>각 단계마다 <b>심화</b>(같은 직무를 더 깊이) 또는 <b>확장</b>(인접·다른 직무로 넓게) 중 하나를 선택해 주세요.</div>
+
+      <div class="pathcard now">
+        <span class="stg">현재</span><h4>지금 맡고 있는 직무입니다. 기본 정보에서 고른 직무가 들어옵니다.</h4>
+        <div class="grid c2">
+          <div class="f"><label>중분류</label><input id="nowMid" readonly placeholder="현 담당 직무를 먼저 선택하세요"></div>
+          <div class="f"><label>세부 직무</label><input id="nowJob" readonly placeholder="현 담당 직무를 먼저 선택하세요"></div>
+        </div>
+      </div>
+
+      <div class="pathcard s1">
+        <span class="stg">1단계</span><h4 id="h-s1">다음에 맡고 싶은 직무입니다.</h4>
+        <div class="grid c2">
+          <div class="f"><label>희망 중분류<span class="req">*</span></label><select id="s1Mid"><option value="">선택</option></select></div>
+          <div class="f"><label>세부 직무<span class="op">정해 두었다면 고르고, 아니면 중분류 전체</span></label><select id="s1Job"><option value="">선택</option></select></div>
+        </div>
+        <div class="hintbox" id="hint-s1"></div>
+        <div class="dirtog" data-for="s1"><div class="opt" data-v="심화">심화<i>같은 직무를 더 깊게</i></div><div class="opt" data-v="확장">확장<i>다른 직무로 넓게</i></div></div>
+        <div class="f" style="margin-top:11px"><label>희망 사유<span class="req">*</span><span class="op">왜 그 길인지, 무엇을 준비했는지</span></label>
+          <textarea id="s1Reason" maxlength="300" placeholder="예: 현재 콘텐츠 기획 경험을 바탕으로 데이터 기반 마케팅 역량을 심화하고자 함"></textarea><div class="cnt">0/300</div></div>
+      </div>
+
+      <div class="pathcard s2">
+        <span class="stg">2단계</span><h4 id="h-s2">1단계를 거친 뒤 맡고 싶은 직무입니다.</h4>
+        <div class="grid c2">
+          <div class="f"><label>희망 중분류<span class="req">*</span></label><select id="s2Mid"><option value="">선택</option></select></div>
+          <div class="f"><label>세부 직무<span class="op">정해 두었다면 고르고, 아니면 중분류 전체</span></label><select id="s2Job"><option value="">선택</option></select></div>
+        </div>
+        <div class="hintbox" id="hint-s2"></div>
+        <div class="dirtog" data-for="s2"><div class="opt" data-v="심화">심화<i>같은 직무를 더 깊게</i></div><div class="opt" data-v="확장">확장<i>다른 직무로 넓게</i></div></div>
+      </div>
+
+      <div class="pathcard goal">
+        <span class="stg">도달점</span><h4>어느 쪽으로 성장하고 싶은지 골라 주세요. 아직 정하지 않았다면 그대로 두어도 됩니다.</h4>
+        <div class="dirtog three" data-for="goalDir">
+          <div class="opt" data-v="관리자">관리자로 성장<i>여러 직무를 거쳐 총괄 역할로</i></div>
+          <div class="opt" data-v="전문가">전문가로 성장<i>한 분야의 전문성을 깊게</i></div>
+          <div class="opt" data-v="미정">아직 정하지 않음<i>경험하며 찾아가는 중</i></div>
+        </div>
+        <div class="note" id="goalNote" style="margin-top:9px">통합형은 관리자 경로, 특화형은 전문가 경로가 표준입니다. 현 직무의 경력유형과 달라도 괜찮습니다.</div>
+        <div class="grid c2" id="goalFields" style="margin-top:12px">
+          <div class="f"><label>지향하는 역할<span class="op">떠오르는 역할이 있다면</span></label>
+            <input id="goal" list="goalList" placeholder="예: 관광마케팅 총괄">
+            <datalist id="goalList"></datalist></div>
+          <div class="f"><label>보충 설명<span class="op">선택</span></label>
+            <textarea id="s2Reason" maxlength="300" placeholder="예: 마케팅과 MICE를 모두 경험해 통합 마케팅을 총괄하고자 함"></textarea><div class="cnt">0/300</div></div>
+        </div>
+        <details class="midref" id="midref">
+          <summary>중분류별로 어떤 직무가 있는지 보기</summary>
+          <div class="midref-body" id="midrefBody"></div>
+        </details>
+      </div>
+    </div>
+  </div>
+
+  <div class="sect">
+    <h3><span class="n">4</span> 선행교육 수강 이력 <span class="sticker">권고사항</span></h3>
+    <div class="sbody">
+      <div class="advice">
+        <b>이 항목은 권고사항입니다.</b>
+        수강하지 않았거나 쓰지 않아도 계획서는 제출되며, 배치 검토에서 불이익을 받지 않습니다.<br>희망 직무가 어떤 일인지 알아본 뒤 경로를 그리시도록 두는 자리입니다.
+      </div>
+      <div class="gdesc">
+        <b>희망 직무와 관련된 교육만</b> 적어 주세요.<br>전 직원이 매년 듣는 의무교육(성희롱 예방, 청렴, 정보보안, 안전 등)과 공통역량 교육은 직무와 무관하므로 적지 않습니다.
+      </div>
+      <div class="eduzone">
+        <div class="zh"><span class="zb auto">자동</span>휴넷 수료 이력에서 불러오기</div>
+        <div class="certbar">
+          <button type="button" class="certbtn" id="certBtn" onclick="fetchCerts()">내 수료 이력 불러오기</button>
+          <span class="certhint">사번과 성명을 입력한 뒤 누르면 희망 직무와 연계된 과정만 찾아옵니다.</span>
+        </div>
+        <div class="certnote" id="certNote"></div>
+        <div id="eduAuto"></div>
+      </div>
+
+      <div class="eduzone manual">
+        <div class="zh"><span class="zb man">수기</span>직접 추가하기</div>
+        <div class="note" style="margin-bottom:9px">목록에는 <b>본인이 이수한 휴넷 과정</b>만 나옵니다.<br>자동으로 잡히지 않았지만 희망 직무와 관련 있다고 보시는 과정을 골라 주세요.<br>휴넷 외 기관에서 들은 과정은 <b>직접 입력</b>으로 적어 주세요.</div>
+        <div id="eduList"></div>
+        <button class="addbtn" onclick="addEdu()">＋ 교육 과정 추가</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="sect">
+    <h3><span class="n">5</span> 자격증 · 어학 <span class="sticker">권고사항</span></h3>
+    <div class="sbody">
+      <div class="gdesc">직무와 관련된 <b>자격증과 어학 성적</b>을 적어 주세요.<br>운전면허처럼 직무와 무관한 것은 적지 않아도 됩니다.</div>
+      <div id="licList"></div>
+      <button class="addbtn" onclick="addLic()">＋ 자격증 · 어학 추가</button>
+    </div>
+  </div>
+
+  <div class="sect">
+    <h3><span class="n">6</span> 강점과 보완할 역량</h3>
+    <div class="sbody">
+      <div class="grid c2">
+        <div class="f"><label>강점 역량<span class="op">지금 직무와 앞으로의 경로에 관련된 것</span></label>
+          <textarea id="strength" maxlength="400" placeholder="본인의 강점을 직무 경험과 함께 기재"></textarea><div class="cnt">0/400</div></div>
+        <div class="f"><label>보완 역량<span class="op">그 경로를 가려면 무엇이 더 필요한지</span></label>
+          <textarea id="gap" maxlength="400" placeholder="목표 직무 수행에 보완이 필요한 역량과 개발 계획"></textarea><div class="cnt">0/400</div></div>
+      </div>
+      <div class="note" style="margin-top:8px">보완 역량은 차기 연도 교육훈련 계획 수립에 활용됩니다. (규정 제24조)</div>
+    </div>
+  </div>
+
+  <div class="sect">
+    <h3><span class="n">7</span> 작성 내용 확인</h3>
+    <div class="sbody">
+      <div class="gdesc">제출 전에 아래 내용을 한 번 확인해 주세요.<br>제출 후에도 마감 전까지는 다시 제출하면 내용이 바뀝니다.</div>
+      <div class="review" id="review"></div>
+
+      <div class="privacy">
+        <h4>개인정보 수집 · 이용 안내</h4>
+        <dl>
+          <div><dt>목적</dt><dd>경력개발 지원, 교육훈련 계획 수립, 인사배치 검토</dd></div>
+          <div><dt>필수 항목</dt><dd>사번, 성명, 구분, 직급, 현 담당 직무, 경력단계, 희망 경로</dd></div>
+          <div><dt>선택 항목</dt><dd>선행교육 수강 이력, 자격증·어학, 강점·보완역량, 종합 의견</dd></div>
+          <div><dt>보유 기간</dt><dd>작성일로부터 5년 (경력개발 이력 관리 목적)</dd></div>
+        </dl>
+        <p class="pnote">필수 항목은 근로계약 이행과 인사관리를 위해 동의 없이 처리됩니다.<br>선택 항목은 동의하지 않으셔도 계획서를 제출하실 수 있으며, 그에 따른 불이익은 없습니다.</p>
+      </div>
+
+      <label class="chk" for="agreeOpt"><input type="checkbox" id="agreeOpt">
+        <span>선택 항목(선행교육 이력, 자격증·어학 등)의 수집·이용에 동의합니다.</span></label>
+      <label class="chk main" for="confirmOk"><input type="checkbox" id="confirmOk">
+        <span><b>위 작성 내용을 확인했습니다.</b>
+          <em>기재 내용은 육성·배치 검토의 참고자료이며, 특정 부서 배치를 확약하지 않는다는 점을 이해했습니다.</em></span></label>
+    </div>
+  </div>
+
+  <div class="sect">
+    <h3><span class="n">8</span> 종합 의견 <span class="tag">선택</span></h3>
+    <div class="sbody">
+      <div class="f"><label>경력개발 관련 종합 의견</label>
+        <textarea id="overall" maxlength="500" placeholder="경력개발과 관련하여 인사팀에 전달하고 싶은 의견을 자유롭게 기재해 주세요."></textarea><div class="cnt">0/500</div></div>
+      <label class="wantbox" for="wantInterview">
+        <input type="checkbox" id="wantInterview">
+        <span class="wt"><b>인사팀과의 개별 면담을 희망합니다.</b>
+          <em>순환주기를 고려해 경력에 대해 상의하고 싶은 점이 있으면 체크해 주세요.<br>체크하지 않으셔도 작성하신 계획서로 의사는 충분히 반영됩니다.</em></span>
+      </label>
+      <div class="prio">
+        <b>면담은 신청하신 분 중에서 우선순위를 정해 진행합니다.</b>
+        면담에 쓸 수 있는 시간과 인원에 한계가 있어 신청하신 모든 분과 면담하기는 어렵습니다.
+        순환주기 도래 여부, 신청 사유, 직무 전환 필요성 등을 함께 보아 인사팀이 대상을 정합니다.
+        <span>이번에 면담이 이루어지지 않더라도 작성하신 내용은 교육훈련 계획과 배치 검토에 그대로 반영됩니다.</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="savebar" id="savebar">
+  <div class="info" id="saveinfo">작성 내용은 이 브라우저에 자동으로 임시저장됩니다.</div>
+  <div class="sp"></div>
+  <button class="save" onclick="manualSave()">임시저장</button>
+  <button class="submit" id="submitBtn" onclick="submitForm()">제출</button>
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+const EDU=[{"cat":"일반직","mid":"경영기획","jobs":["기획예산"],"초급":[{"t":"[레전드 스킬] 당신 안의 숨은 기획력을 끌어내는 12가지 질문","m":93},{"t":"[보고의 신] AI로 레벨업하는 문서 작성 스킬1","m":48},{"t":"위기를 돌파하는 비즈니스 혁신 전략","m":88}],"중급":[{"t":"아이디어를 성과로 바꾸는 비즈니스 기획","m":187},{"t":"[북러닝] 서울대 MBA 구루에게 듣는 전략경영 이야기(도서 미제공)","m":42},{"t":"ChatGPT를 활용한 경영 전략 수립1","m":117}],"고급":[{"t":"불확실성을 돌파하는 필승전략, 사업 타당성 분석","m":215},{"t":"보고서의 품질을 높이는 AI 문서 작성 노하우1","m":112},{"t":"경영전략을 묻고, 역사가 답하다","m":207}]},{"cat":"일반직","mid":"경영관리","jobs":["감사"],"초급":[{"t":"[오피스백서] 청탁금지법1","m":48},{"t":"[오피스백서] 공공기관 청렴·반부패 교육1","m":86},{"t":"박양진 변호사의 한번에 파악하는 개정 공정거래법 특강","m":117}],"중급":[{"t":"[오피스백서] 청탁금지법2","m":57},{"t":"[오피스백서] 공공기관 청렴·반부패 교육2","m":55},{"t":"[내일을 잇는 클래스] 윤리경영","m":133}],"고급":[{"t":"[오피스백서] 공공기관 청렴·반부패 교육3","m":72},{"t":"[행복의 공식] 윤리경영","m":143},{"t":"상위 1퍼센트 기업의 비밀, 윤리경영","m":176}]},{"cat":"일반직","mid":"경영관리","jobs":["홍보"],"초급":[{"t":"[레전드 스킬] 현직 기자가 알려주는 보고서 잘 쓰는 법","m":107},{"t":"일잘러를 위한 AI 활용 공공기관 문서 작성 한 번에 끝내기1","m":49},{"t":"브랜드 스토리에서 배우는 성공 법칙1","m":29}],"중급":[{"t":"[레전드 스킬] 함께 이야기하고 싶은 사람이 되는 법","m":110},{"t":"글로벌 트렌드 인사이트, 진실의 순간이 온다","m":61},{"t":"[북러닝] ESG 브랜딩 워크북(도서 미제공)","m":42}],"고급":[{"t":"온리원이 되는 생존 브랜딩, 브랜드 전략","m":225},{"t":"상위 1% 리더의 무기, 커뮤니케이션 스킬","m":117},{"t":"브랜드 덕후를 만드는 브랜드 커뮤니케이션","m":236}]},{"cat":"일반직","mid":"경영관리","jobs":["인사관리"],"초급":[{"t":"Real 5분, 인사노무 실무가이드1","m":224},{"t":"HR도 ChatGPT로 하는 시대가 왔다","m":54},{"t":"데이터로 인사를 혁신하라 : HR ANALYTICS","m":112}],"중급":[{"t":"HR, AI가 트렌드다 : 채용부터 퇴사까지1","m":38},{"t":"새롭게 개정된 실전 노무법 ＆ 노무 이슈1","m":50},{"t":"[HRethink] 돌파하는 기업을 만드는 HR의 미래","m":242}],"고급":[{"t":"채용을 디자인하라, 기업에 FIT한 인재 확보 전략","m":199},{"t":"글로벌 HR 트렌드 : 미래조직 혁신전략","m":70},{"t":"평가에서 성과관리로, 프레임을 전환하라!","m":184}]},{"cat":"일반직","mid":"경영관리","jobs":["경영지원"],"초급":[{"t":"김백진,이태영 변호사와 함께하는 공공조달계약의 이해1","m":121},{"t":"경영자와 실무자를 위한 중대재해처벌법","m":130},{"t":"기업 생존을 결정하는 ESG 전략1","m":120}],"중급":[{"t":"김백진,이태영 변호사와 함께하는 공공조달계약의 이해2","m":139},{"t":"기업 생존을 결정하는 ESG 전략2","m":106},{"t":"ESG X Tech : DX시대의 ESG 경영 전략","m":82}],"고급":[{"t":"미래를 경영하다, ESG 마스터 클래스","m":147},{"t":"글로벌 경영트렌드, ESG 성공 전략","m":227},{"t":"모두를 위한 중대재해처벌법1","m":78}]},{"cat":"일반직","mid":"경영관리","jobs":["재무회계"],"초급":[{"t":"출근길에 마스터하는 회계 기초1","m":110},{"t":"Get! 꿀~ 직장인의 세금 상식","m":119},{"t":"직장인이여, 회계하라! 한 달 만에 끝내는 재무제표 분석1","m":105}],"중급":[{"t":"출근길에 마스터하는 회계 기초2","m":111},{"t":"재경실무자가 실수하기 쉬운 부가가치세 신고 실무1","m":128},{"t":"[정도진의 절대회계] 내부회계관리제도1","m":128}],"고급":[{"t":"2025 IFRS 중급회계1","m":197},{"t":"투명한 기업을 위한 내부회계관리제도","m":234},{"t":"클릭, GPTs로 만드는 나만의 재무제표 분석봇1","m":43}]},{"cat":"일반직","mid":"AI·데이터","jobs":["AI·ICT"],"초급":[{"t":"[북러닝] 서비스 기획자로 일하고 있습니다(도서 미제공)","m":47},{"t":"전사원 꼭! 제로 트러스트 시대의 기업정보보안 마스터하기 1","m":91},{"t":"[HD]SW개발보안 - Secure Coding(시큐어 코딩) 제대로 배우기 1","m":120}],"중급":[{"t":"[북러닝] 앞서가는 직장인의 필수 스킬 : 오늘부터 개발자(도서 미제공)","m":38},{"t":"AI가 바꾼 보안의 룰, 지금 알아야 할 것들1","m":84},{"t":"미래를 위한 경영혁신, AI 드리븐 매니지먼트","m":76}],"고급":[{"t":"[AI ＆ Bigdata] AI가 알려주는 비즈니스 전략","m":198},{"t":"AI가 바꾼 보안의 룰, 지금 알아야 할 것들2","m":68},{"t":"[AIxHuman] 인공지능에 윤리를 더하다","m":215}]},{"cat":"일반직","mid":"관광마케팅","jobs":["글로벌마케팅","디지털마케팅","관광브랜드"],"초급":[{"t":"마케팅 커리어의 시작, 실무 마케팅 Lv.1","m":225},{"t":"MZ세대를 사로잡은 디지털 마케팅 트렌드","m":68},{"t":"마케팅 메가 트렌드","m":63},{"t":"오늘 기획, 오늘 배포! AI로 만드는 요즘 콘텐츠의 모든 것1","m":141},{"t":"글로벌 트렌드 인사이트, 진실의 순간이 온다","m":61}],"중급":[{"t":"한 달 만에 매출 200% 늘리는 AI 마케팅 전략1","m":90},{"t":"소비자의 심리를 읽어라, 행동경제학1","m":110},{"t":"요즘 마케터의 ChatGPT 활용법","m":219},{"t":"노코드 마케팅 업무 자동화를 위한 AI 서비스 모음ZIP 1","m":62},{"t":"상대를 훅 끌어당기는 세일즈 커뮤니케이션","m":141}],"고급":[{"t":"AX시대, 디지털 마케터를 위한 마케팅 인사이트","m":209},{"t":"데이터 마케터의 필수 치트키, 구글 애널리틱스4","m":223},{"t":"SKIP없는 콘텐츠마케터의 트렌디한 전략","m":217},{"t":"브랜드 덕후를 만드는 브랜드 커뮤니케이션","m":236},{"t":"한 끗 차이로 팔리는 시대, 리테일 2.0","m":56}]},{"cat":"일반직","mid":"MICE산업진흥","jobs":["MICE전략","MICE마케팅"],"초급":[{"t":"당신의 경쟁력을 높여줄 비즈니스 전략 툴킷1","m":121},{"t":"[SSS급 루키] 탑티어 기획자의 생각법","m":230},{"t":"[세일즈 뉴노멀] 고객에게 가치를 제안하는 Insight Selling Skill1","m":187},{"t":"[쉬플리 세일즈] 수주의 핵심은 전략이다. Powerful한 제안 전략1","m":120},{"t":"팔리는 브랜드 경험을 만드는 데이터 마케팅1","m":128}],"중급":[{"t":"소비자의 심리를 읽어라, 행동경제학2","m":119},{"t":"데이터로 고객을 읽는 마케팅 기법, 그로스해킹","m":105},{"t":"노코드 마케팅 업무 자동화를 위한 AI 서비스 모음ZIP 2","m":62},{"t":"한 달 만에 매출 200% 늘리는 AI 마케팅 전략3","m":87},{"t":"오늘 기획, 오늘 배포! AI로 만드는 요즘 콘텐츠의 모든 것2","m":111}],"고급":[{"t":"전략을 위한 전략, Next Big Thing을 찾아서","m":84},{"t":"글로벌 트렌드 인사이트, 진실의 순간이 온다","m":61},{"t":"광고인줄 알면서도 저장하는 AI활용 콘텐츠마케팅 디자인","m":209},{"t":"남다른 성과로 증명하는 퍼포먼스마케터의 전략","m":201},{"t":"데이터로 말하는 마케터, 데이터 드리븐 마케팅","m":198}]},{"cat":"일반직","mid":"관광산업진흥","jobs":["글로벌관광산업","예술상생관광","관광서비스"],"초급":[{"t":"뉴노멀 시대를 위한 새로운 비즈니스 모델","m":72},{"t":"AI 시대의 인재, 창의력 마스터1","m":178},{"t":"ChatGPT가 바꿔놓은 9가지 기획의 기술1","m":130},{"t":"서비스 브레인, 고객 만족을 디자인하라","m":122},{"t":"[유니콘 따라잡기] 혁신적 사고와 사업개발전략","m":206}],"중급":[{"t":"[북러닝] 공간은 경험이다(도서 미제공)","m":47},{"t":"AI 시대의 인재, 협업 커뮤니케이션 마스터1","m":182},{"t":"100℃고객을 36.5℃로 만드는 고객 불만 응대 솔루션","m":199},{"t":"아이디어를 성과로 바꾸는 비즈니스 기획","m":187},{"t":"고객만족경영, 고객경험(CX)을 디자인 하라1","m":100}],"고급":[{"t":"[AI ＆ Bigdata] AI가 알려주는 비즈니스 전략","m":198},{"t":"팔리는 브랜드 경험을 만드는 데이터 마케팅2","m":119},{"t":"브랜드 덕후를 만드는 브랜드 커뮤니케이션","m":236},{"t":"소비자의 심리를 읽어라, 행동경제학1","m":110},{"t":"전략을 위한 전략, Next Big Thing을 찾아서","m":84}]},{"cat":"일반직","mid":"관광콘텐츠","jobs":["관광축제이벤트","관광자원개발"],"초급":[{"t":"AI 시대의 인재, 창의력 마스터2","m":169},{"t":"ChatGPT가 바꿔놓은 창의적 문제해결법, 트리즈1","m":105},{"t":"AI 시대의 인재, 문제 해결 마스터1","m":162},{"t":"[SSS급 루키] 탑티어 기획자의 생각법","m":230},{"t":"새로운 시장이 온다, 구독경제","m":75}],"중급":[{"t":"클릭을 부르는 카피라이팅(feat. ChatGPT)","m":220},{"t":"이미지 제작을 위한 AI 완전정복: GPT-4o로 광고, 굿즈, 포스터까지! 1","m":90},{"t":"아이디어를 성과로 바꾸는 비즈니스 기획","m":187},{"t":"오늘 기획, 오늘 배포! AI로 만드는 요즘 콘텐츠의 모든 것2","m":111},{"t":"팔리는 브랜드 경험을 만드는 데이터 마케팅2","m":119}],"고급":[{"t":"한 끗 차이로 트렌드가 되는 SNS 광고 마케팅","m":277},{"t":"좋아요를 터뜨리는 콘텐츠마케팅 데이터 분석","m":251},{"t":"[레전드 스킬] 그래서 문제가 뭔데?_feat. 트리즈 씽킹","m":110},{"t":"힙한 브랜드는 왜 채널 마케팅에 진심일까?","m":224},{"t":"브랜드 덕후를 만드는 브랜드 커뮤니케이션","m":236}]},{"cat":"일반직","mid":"관광인프라","jobs":["관광인프라"],"초급":[{"t":"디지털 시대, 고객의 마음을 두드리는 New CS 스킬1","m":103},{"t":"일잘러를 위한 AI 활용 공공기관 문서 작성 한 번에 끝내기1","m":49},{"t":"트렌드를 읽으면 비즈니스 기회가 보인다!1","m":123}],"중급":[{"t":"지금은 고객경험의 시대! CX Accelerate","m":238},{"t":"AI 시대의 인재, 협업 커뮤니케이션 마스터2","m":179},{"t":"100℃고객을 36.5℃로 만드는 고객 불만 응대 솔루션","m":199}],"고급":[{"t":"[레전드 스킬] 현직 기자가 알려주는 보고서 잘 쓰는 법","m":107},{"t":"기업 생존을 결정하는 ESG 전략1","m":120},{"t":"힙한 브랜드는 왜 채널 마케팅에 진심일까?","m":224}]},{"cat":"전문직","mid":"관광마케팅","jobs":["외국어 콘텐츠 지원"],"초급":[{"t":"[스낵영어] GPT와 함께하는 요즘영어: Hip Talk 1","m":24},{"t":"[스낵영어] 직장인을 위한 ChatGPT 영어 스피킹 2탄. My Interests 1","m":38},{"t":"오늘 기획, 오늘 배포! AI로 만드는 요즘 콘텐츠의 모든 것1","m":141}],"중급":[{"t":"[스낵영어] ChatGPT로 쓰는 영어 이메일1","m":33},{"t":"[레전드 스킬] 함께 이야기하고 싶은 사람이 되는 법","m":110},{"t":"광고인줄 알면서도 저장하는 AI활용 콘텐츠마케팅 디자인","m":209}],"고급":[{"t":"온리원이 되는 생존 브랜딩, 브랜드 전략","m":225},{"t":"서비스 브레인, 고객 만족을 디자인하라","m":122},{"t":"브랜드 덕후를 만드는 브랜드 커뮤니케이션","m":236}]},{"cat":"전문직","mid":"관광인프라","jobs":["관광센터운영"],"초급":[{"t":"[스낵영어네이티브] 독학 여행영어 초급_기본패턴 편 1","m":40},{"t":"[스낵영어] Quiz로 배우고 GPT로 말하는 여행영어1","m":34},{"t":"디지털 시대, 고객의 마음을 두드리는 New CS 스킬1","m":103}],"중급":[{"t":"서비스 브레인, 고객 만족을 디자인하라","m":122},{"t":"지금은 고객경험의 시대! CX Accelerate","m":238},{"t":"마케팅 메가 트렌드","m":63}],"고급":[{"t":"[스낵영어] 품격 있는 영어로 나를 말하는 Q&A 스킬1","m":32},{"t":"고객만족경영, 고객경험(CX)을 디자인 하라1","m":100},{"t":"브랜드 덕후를 만드는 브랜드 커뮤니케이션","m":236}]}], CLS=[{"cat":"일반직","mid":"경영기획","name":"기획예산","type":"통합형","div":"기획경영본부","team":["기획예산팀"],"ov":"전사경영목표를 효과적으로 달성하기 위한 전략을 수립하고 최적의 자원을 효율적으로 배분하도록 경영진의 의사결정을 체계적으로 지원하는 업무를 수행한다.","src":["기획예산","성과관리"],"duties":[{"d":"경영기획","t":["중장기 경영전략 수립","연도별 사업계획 수립 및 실행로드맵 기획","기관장 주재 정례회의 운영","재단 연구업무(서울시민-외국인관광 실태분석)"]},{"d":"조직관리","t":["전사 직제-조직 및 정원관리","부서별 업무분장 수립 및 조정","이사회 개최 및 안건관리 등 사후관리","임원 임기 관리 및 임원추천위원회 운영","규범(조례/정관/규정/지침 등 사규) 제개정 관리"]},{"d":"대외협력","t":["대외기관 업무협력 (MOU 관리 등)","대외기관 요청사항 관리 등 대외 대응","시의회 운영 및 각종 업무보고","후원 명칭 사용심의 운영"]},{"d":"예산관리","t":["예산편성/조정 및 집행 기준 관리","출연금 및 자체재원 등 재원별 예산관리 및 확보","분기별 출연금 교부 신청/관리 및 월·분기별 예산 집행률 관리","중장기 재무전략 수립 및 재정운영계획 수립"]},{"d":"성과관리","t":["서울시 투자출연기관 경영평가(경영성과, 창의·혁신성과 등)","경영평가 평가지표 개선관리","기관장 성과지표 및 실적관리","고객만족도 조사","연중 지표 달성현황 주기적 점검 및 보고","예비 경영지표 설정 및 운영관리","내부(부서) 성과평가 지표 및 성과관리","내부(부서) 성과평가 진행","재단 사업별 실적관리","재단 대외수상 및 실적관리"]}],"pk":"A"},{"cat":"일반직","mid":"경영관리","name":"감사","type":"통합형","div":"직속","team":["감사관"],"ov":"감사, 인권경영, 청렴정책 관련 법령·기준·절차를 이해하고 이를 바탕으로 내부감사, 특정감사, 복무·성과 감사, 인권경영, 청렴윤리 관련 업무를 체계적으로 수행한다.","src":["감사"],"duties":[{"d":"감사기획","t":["감사계획 수립(기본계획, 정기감사계획)","적극행정 계획 수립","점검계획 수립","반부채청렴·인권경영 기본 계획 수립"]},{"d":"감사운영","t":["대내외 감사 대응","상시 모니터링 및 조치","공직기강, 행동강령 점검 및 관리","서울시 부패방지시책평가","자체감사기구 활동 평가 수검","청렴옴부즈만 운영","적극행정 제도구축 및 시행","청렴교육 시행(청탁금지법, 이해충돌방지법 등)"]},{"d":"인권경영","t":["인권영향평가 시행","공익·비리신고센터 운영","인권경영위원회 운영"]},{"d":"민원 및 법무관리","t":["재단 사업 법률 자문 관리","내외부 민원 관리"]}],"pk":"B"},{"cat":"일반직","mid":"경영관리","name":"홍보","type":"통합형","div":"직속","team":["홍보팀"],"ov":"재단의 정책·사업·성과를 언론 및 다양한 매체를 통해 효과적으로 전달하기 위해 보도자료 작성, 언론 대응 및 이슈 관리를 수행한다.","src":["홍보"],"duties":[{"d":"홍보기획","t":["사업홍보 및 광고 전략 수립","기관 브랜딩 전략 수립","미디어 네트워크 관리 전략 수립"]},{"d":"홍보운영","t":["보도자료 검수 및 품질 관리","기획기사 추진 및 현황 관리","광고 추진 및 현황 관리","전사 보도 실적관리 및 상시 언론 모니터링","브랜드 가이드 제작 및 관리","기관 주요 행사 프레스 투어 지원","기관장 인터뷰 추진 및 현황 관리","자문기자단 운영 및 서울관광테마 취재 관리","기관 SNS 운영","홍보 배포물 제작 및 재고 관리","전사 성별영향평가 관리"]},{"d":"네트워크 관리","t":["언론사 취재요청 응대","기관 사회공헌활동 운영","대외 협력 협의체 운영 및 관리"]},{"d":"촬영","t":["서울명소 사진 촬영 및 서울관광 아카이브 운영","보도용 사진 및 주요 사내행사 촬영"]}],"pk":"B"},{"cat":"일반직","mid":"경영관리","name":"인사관리","type":"통합형","div":"기획경영본부","team":["인사팀"],"ov":"조직의 안정적 운영과 전략적 인력관리를 위해 채용, 인사·복무·급여·노무·인재양성 전반에 대한 제도 수립 및 운영을 수행한다. 내부 구성원의 근무환경 조성, 공정한 보상·노사관계 관리, 역량 개발을 통해 조직성과와 지속가능성을 제고하는 역할을 수행한다.","src":["인사관리"],"duties":[{"d":"인사","t":["연간 및 중장기 인력운영계획 수립","인사제도 운영(승진/근무평정/경력개발 등)","조직내 소통활성화 및 조직문화 개선","양성평등 및 성희롱·성폭력 예방에 관한 업무"]},{"d":"채용관리","t":["전사 채용수요 분석 및 채용전형 운영","입퇴사관리 및 근로계약 관리"]},{"d":"복무관리","t":["복무제도(근태 및 휴가관리, 유연근무제 등) 운영","복지제도(단체보험, 선택적 복지 등) 운영","일생활균형 및 모성보호 관련 업무","근태관리(ERP) 등 인사시스템 관리"]},{"d":"급여관리","t":["보수제도 기획 및 운영(급여정산)","총인건비 및 연간 인건비 예산 편성관리","4대보험 관리","퇴직제도 관리(퇴직금 정산) 및 임직원 연말정산관리"]},{"d":"노무관리","t":["단체교섭 및 임금협약 관련 업무","노사 파트너십 구축 및 노사협의회 운영","노사정협의회 운영 관련 업무","직장내 괴롭힘 관련 업무 및 고충처리 업무","임금피크제 운영"]},{"d":"인재양성","t":["연간 교육훈련계획 수립","분야별 교육과정 기획 및 운영","국내외 연수제도, 산학협력(학위지원) 추진","교육훈련비 예산 편성관리 및 임직원 교육실적 관리"]}],"pk":"B"},{"cat":"일반직","mid":"경영관리","name":"경영지원","type":"통합형","div":"기획경영본부","team":["경영지원팀"],"ov":"기관 운영의 안정성과 효율성 확보를 위해 총무·계약·자산·안전 등에 대한 관리체계를 수립·운영한다. 관련 법령과 내부 기준에 따라 예산·자산·시스템·안전을 통합적으로 관리하여 기관의 지속가능한 운영 기반을 지원한다.","src":["경영지원"],"duties":[{"d":"계약","t":["입찰계약관리 및 수의계약(전자공개 및 1인견적) 관리","계약대금 관리 및 준공관리","공공구매 및 녹색제품 구매 관리, 계약 업무제도 개선"]},{"d":"정보공개/기록물관리","t":["기록물 관리 및 대내외 문서 수발신 관리","정보공개제도 운영계획 수립 및 정보공개 관리(접수/결정통지/이의신청 등)"]},{"d":"보건안전","t":["산업안전보건법/중대재해처벌법 대응 및 법규준수","산업재해, 시민재해, 재해재난 등 대응 및 재해예방","근로자 대상 질환예방(근골격계/온열/한랭/정신질환 등)","근로자 대상 안전보건교육 실시 및 사업장 안전보건 강화"]},{"d":"자산관리/총무","t":["물품 수급관리계획 수립 및 물품 구매관리","물품 및 자산관리, 차량관리, 근무지원(우편물, 통신 및 임차물품관리 등)"]},{"d":"청사/플라자 운영","t":["서울관광플라자 운영 계획 수립 / ESG 활성화 계획 수립","입주공간 조성 및 입주시설 운영관리","입주스타트업 모집 및 관리업무 지원"]}],"pk":"B"},{"cat":"일반직","mid":"경영관리","name":"재무회계","type":"통합형-전문직무","div":"기획경영본부","team":["경영지원팀"],"ov":"기관 운영의 안정성과 효율성 확보를 위해 원천세 및 지방세 신고·납부, 회계검증 및 장부 관리, 재무제표 작성 등 회계·세무 관리업무 등을 통합적으로 관리하여 지속가능한 운영 기반을 지원한다.","src":["재무회계"],"duties":[{"d":"재무회계","t":["자금운용 계획수립","자금관리(예금 인출납, 유휴자금 운용 등)","회계 결산(분기/반기/연간)","재무회계 관련 외부감사 수감","세무조정","세무관리(세무신고/납부 등)","회계전표 관리 및 월마감 관리","법인카드 관리 및 월마감 관리"]}],"pk":"E"},{"cat":"일반직","mid":"AI·데이터","name":"AI·ICT","type":"특화형","div":"기획경영본부","team":["AI혁신팀"],"ov":"ICT 인프라와 재단경영에 필요한 정보자원을 통합적으로 관리하고, 개인정보 및 정보보안 업무관리를 통해 사업과 행정 업무가 안정적으로 수행될 수 있도록 지원한다.","src":["ICT"],"duties":[{"d":"ICT관리","t":["재단 ICT 기획 및 종합계획 수립","서울관광 온라인 서비스 인프라 개선 및 고도화 기획","스마트 IT 기획","전사업무용 단말기 관리 및 유지보수","네트워크 관리 및 유지보수","소프트웨어 관리 및 유지보수","그룹웨어/ERP 운영 및 유지보수","서울관광 온라인 서비스 유지보수 및 통합시스템 운영·관리","비짓서울 홈페이지 및 앱, API센터 서비스 운영·관리","서울관광재단 홈페이지 및 서울관광 아카이브 운영·관리","ICT헬프데스크 운영 등 관련 업무"]},{"d":"개인정보/정보보안","t":["전사 개인정보보호 및 정보보안 정책 기획 및 시행","개인정보보호 체계 관리","전사 정보시스템 점검 및 컴플라이언스 관리","정보보호장비 운영"]}],"pk":"F"},{"cat":"일반직","mid":"관광마케팅","name":"글로벌마케팅","type":"통합형","div":"국제관광·MICE본부","team":["글로벌마케팅팀"],"ov":"글로벌마케팅 사업목표 달성을 위해 글로벌 시장에 대한 조사-분석과 글로벌마케팅 사업을 기획하고, 글로벌 홍보마케팅 및 홍보 모델 발굴 및 확산, 프로모션 연계 마케팅 관리 등 업무를 수행한다.","src":["글로벌마케팅 사업운영"],"duties":[{"d":"사업기획","t":["글로벌 시장 조사-분석","글로벌마케팅 사업기획","마케팅 전략 기획","사업진행관리"]},{"d":"광고·홍보마케팅 / 프로모션","t":["글로벌 콘텐츠 제작","글로벌 홍보 확산","서울관광 현지 프로모션 및 마케팅","국내외 기업 및 플랫폼 프로모션"]},{"d":"네트워크 관리","t":["협력 네트워크 관리"]},{"d":"사업운영","t":["글로벌 통합마케팅 종합관리","서울관광 대표 홍보콘텐츠 기획 및 활용지원","브랜드 크리에이티브 관리","프로모션 연계 마케팅 관리","글로벌 홍보모델 발굴 관리","글로벌 마케팅 조사분석"]}],"pk":"C"},{"cat":"일반직","mid":"관광마케팅","name":"디지털마케팅","type":"통합형","div":"국제관광·MICE본부","team":["디지털마케팅팀"],"ov":"스마트관광 사업목표 달성을 위해 신규 사업 및 온라인서비스 인프라 개선 등 사업을 기획하고, 홍보마케팅 및 프로모션, 산업지원, 소셜미디어(4개어권 12채널) 운영, 아카이브 운영관리 등 업무를 수행한다.","src":["디지털마케팅 사업운영"],"duties":[{"d":"사업기획","t":["신규 디지털마케팅 사업기획","비짓서울 채널별(웹/앱/SNS/유튜브) 사업전략 수립 및 콘텐츠 기획","서울 특화관광(예술관광) 활성화 사업기획"]},{"d":"광고·홍보마케팅 / 프로모션","t":["비짓서울 채널별(웹/앱/SNS/유튜브) 콘텐츠 제작 및 홍보마케팅","비짓서울 채널별(웹/앱/SNS/유튜브) 콘텐츠 확산 이벤트 추진"]},{"d":"네트워크 관리","t":["비짓서울 연관 제휴 사이트 관리 및 운영 지원","글로벌서울메이트 신규 모집 및 네트워크 관리","서울 예술관광 얼라이언스(SATA) 신규 모집 및 네트워크 관리"]},{"d":"사업운영","t":["비짓서울 소셜미디어(4개 어권 12개 채널) 운영","비짓서울TV 유튜브 운영","글로벌서울메이트(국내 거주 외국인 크리에이터) 운영"]}],"pk":"C"},{"cat":"일반직","mid":"관광마케팅","name":"관광브랜드","type":"통합형","div":"국제관광·MICE본부","team":["관광브랜드팀"],"ov":"관광브랜드 사업목표 달성을 위해 서울굿즈 등 사업을 기획하고, 홍보마케팅 및 프로모션, 산업지원, 서울굿즈 제작 및 매출-정산관리, 굿즈 매장운영관리 등 업무를 수행한다.","src":["관광브랜드 사업운영"],"duties":[{"d":"사업기획","t":["서울굿즈 기획","서울 브랜드·굿즈 마케팅 전략 계획","서울굿즈 판매 전략 기획"]},{"d":"광고·홍보마케팅 / 프로모션","t":["서울 굿즈 홍보 콘텐츠 제작","서울 굿즈 온라인 홍보마케팅","서울굿즈 오프라인 홍보마케팅(매장 프로모션 등)","서울굿즈 임시 홍보관 기획 및 운영관리","민간 콜라보 추진"]},{"d":"네트워크 관리","t":["서울굿즈 관련 민/관 협력 네트워크 관리 및 운영","서울굿즈 위·수탁 사업체 관리"]},{"d":"사업운영","t":["서울굿즈 제작 및 제품 수급(MD)","서울 굿즈 매출 및 판매데이터 관리","서울 굿즈 정산 및 회계 관리","서울굿즈 매장 조성 및 운영 관리","서울 굿즈 재고 및 물류 관리"]}],"pk":"C"},{"cat":"일반직","mid":"MICE산업진흥","name":"MICE전략","type":"통합형","div":"국제관광·MICE본부","team":["MICE전략팀"],"ov":"MICE 유치 및 개최지원 사업목표 달성을 위해 국제이벤트 시장조사·분석 및 국제회의·전시회·국제이벤트 사업을 기획하고, 홍보마케팅 및 프로모션, 산업지원, 국제회의 유치활동 등 업무를 수행한다.","src":["MICE전략 사업운영"],"duties":[{"d":"사업기획","t":["국제회의, 전시회, 국제이벤트 시장 조사/분석","국제회의, 전시회, 국제이벤트 기획","국제회의, 전시회, 국제이벤트 전략 계획","국제회의, 전시회, 국제이벤트 사업진행 관리"]},{"d":"광고·홍보마케팅 / 프로모션","t":["국제회의 유치 홍보","온오프라인 매체 홍보","국제회의 유치 프로모션"]},{"d":"네트워크 관리","t":["글로벌 거버넌스 네트워크 강화"]},{"d":"산업지원","t":["국제회의, 전시회, 국제이벤트 지원금 및 행사 지원","중대형 국제회의 및 국제이벤트 특별지원","국제회의 역량강화 지원","전시회 역량강화 지원"]},{"d":"사업운영","t":["국제회의 유치활동","국제회의, 전시회, 국제이벤트 현황관리(현장운영)","MICE 국제협력 통계분석 및 실태조사"]}],"pk":"C"},{"cat":"일반직","mid":"MICE산업진흥","name":"MICE마케팅","type":"통합형","div":"국제관광·MICE본부","team":["MICE마케팅팀"],"ov":"기업MICE 사업목표 달성을 위해 기업MICE 사업을 기획하고, 홍보마케팅 및 프로모션, 산업지원, MICE마케팅팀 사업행사 운영 관리, 기업지원센터 및 서울MICE플라자 운영 등 업무를 수행한다.","src":["MICE마케팅 사업운영"],"duties":[{"d":"사업기획","t":["MICE 사업기획","MICE 마케팅 전략 계획","MICE 콘텐츠 개발·확산 전략 및 계획 수립"]},{"d":"광고·홍보마케팅 / 프로모션","t":["국제회의 유치 홍보","온오프라인 매체 홍보","기업회의〮인센티브관광 MICE 현지 프로모션","타기관 공동프로모션"]},{"d":"네트워크 관리","t":["글로벌 거버넌스 네트워크 강화"]},{"d":"산업지원","t":["SMA 회원사 지원(행사, 마케팅활동, 파트너십, 홍보관)","서포터즈 운영","서울 MICE 플라자 운영","기업지원센터 운영"]},{"d":"사업운영","t":["MICE SNS 채널 운영","MICE 홈페이지 운영","MICE 유치 및 개최 지원","MICE마케팅팀 사업 행사 운영 지원"]}],"pk":"C"},{"cat":"일반직","mid":"관광산업진흥","name":"글로벌관광산업","type":"통합형","div":"관광산업본부","team":["글로벌관광산업팀"],"ov":"글로벌관광산업 사업목표 달성을 위해 관광트랜드 등 시장조사-분석 및 사업을 기획하고, 홍보마케팅 및 프로모션, 산업지원, 우수관광상품 개발 및 관광스타트업 육성지원 등 업무를 수행한다.","src":["글로벌관광산업 사업운영"],"duties":[{"d":"사업기획","t":["서울관광 해외 마케팅 국가 조사","해외 행사 기획","서울관광 해외시장 조사/분석","서울관광 상품기획","서울 관광스타트업 육성지원"]},{"d":"광고·홍보마케팅 / 프로모션","t":["서울관광 B2B·B2C 홍보","핵심여행사 대상 홍보 및 프로모션","우수관광상품 홍보","서울관광 비즈니스 상담","서울 관광스타트업 육성지원"]},{"d":"네트워크 관리","t":["국내외 관광기업 및 서울상생관광 네트워크 관리","국내외 여행사 및 핵심여행사, 유관기관 네트워크 관리","서울 관광스타트업 육성지원"]},{"d":"산업지원","t":["서울 관광기업 판로개척 및 핵심여행사 상품개발 지원","서울관광 스타트업 지원","서울 관광스타트업 육성지원"]},{"d":"사업운영","t":["서울관광 박람회 및 설명회 운영","해외 핵심여행사 대상 개발 상품 실적 관리","우수관광상품 개발·운영","서울 관광스타트업 육성지원"]}],"pk":"D"},{"cat":"일반직","mid":"관광산업진흥","name":"예술상생관광","type":"통합형","div":"관광산업본부","team":["예술상생관광팀"],"ov":"예술상생관광 사업을 기획하고, 홍보마케팅 및 프로모션, 산업지원, 예술관광 얼라이언스 운영관리, 유니버설 센터 운영관리, 지방상생 활성화 등 업무를 수행한다.","src":["예술상생관광 사업운영"],"duties":[{"d":"사업기획","t":["서울 예술관광 사업 기획","유니버설 관광 사업 기획","서울-지방상생 추진 사업 기획","서울-지역 상생관광 활성화(안테나숍) 사업 기획","서울 특화·테마관광 상품 개발 사업 기획"]},{"d":"광고·홍보마케팅 / 프로모션","t":["사업별 SNS 및 웹페이지 운영","서울 예술관광 얼라이언스 운영","유니버설 관광 관련 홍보 마케팅","서울-지방상생 활성화 관련 프로모션"]},{"d":"네트워크 관리","t":["지방상생 네트워크 모집 및 관리","유니버설 관광 네트워크 모집 및 관리","서울 예술관광 얼라이언스(SATA) 신규 모집 및 네트워크 관리"]},{"d":"산업지원","t":["지방상생 협업 사업 추진 및 업계 지원","유니버설 관광 협업 사업 추진","서울 예술관광 얼라이언스(SATA) 협업 사업 추진"]},{"d":"사업운영","t":["서울 예술관광 사업 운영관리","다누림관광센터 운영","유니버설 관광환경 조성사업 운영","서울-지방상생 추진 사업 운영관리","지역 상생 안테나숍 운영관리"]}],"pk":"D"},{"cat":"일반직","mid":"관광산업진흥","name":"관광서비스","type":"통합형","div":"관광산업본부","team":["관광서비스팀"],"ov":"관광서비스 사업목표 달성을 위해 관광서비스 사업을 기획하고, 홍보마케팅 및 프로모션, 산업지원, 디스커버서울패스 사업운영, 관광서비스 판매-정산관리 등 업무를 수행한다.","src":["관광서비스 사업운영"],"duties":[{"d":"사업기획","t":["디스커버서울패스 사업기획","서울의료관광 사업기획","서울문화관광해설 사업기획","시장 환경·경쟁 상품 분석","신규 관광서비스 상품 기획"]},{"d":"광고·홍보마케팅 / 프로모션","t":["사업별 공식 SNS 및 웹페이지 운영","홍보 콘텐츠 기획·제작 및 홍보물 관리","자체 및 파트너 연계 프로모션 기획 및 실행"]},{"d":"네트워크 관리","t":["관광서비스사업 제휴네트워크 발굴 및 관리","유관기관 협업네트워크 구축 및 관리"]},{"d":"산업지원","t":["서울문화관광해설사 지원(육성·지원금)","관광서비스분야 사업지원(운영지원·지원금)"]},{"d":"사업운영","t":["제휴시설 관리","유관기관 협력","사업별 현장 운영 및 실적관리","관광서비스 판매관리","관광서비스 정산관리","사업 동향조사 및 데이터 현행화"]}],"pk":"D"},{"cat":"일반직","mid":"관광콘텐츠","name":"관광축제이벤트","type":"통합형","div":"관광산업본부","team":["관광축제이벤트팀"],"ov":"관광축제이벤트 사업목표 달성을 위해 축제-이벤트사업을 기획하고, 홍보마케팅 및 프로모션, 산업지원, 관광축제이벤트 운영 및 현장관리, 글로벌축제인증 등 업무를 수행한다.","src":["관광축제이벤트 사업운영"],"duties":[{"d":"사업기획","t":["서울페스타 관광축제 기획","서울썸머비치 관광축제 기획","광화문마켓 등 관광축제 기획","서울 관광이벤트 기획"]},{"d":"광고·홍보마케팅 / 프로모션","t":["홍보 콘텐츠 기획·제작","홍보물 및 기념품 제작","관광축제 언론·SNS 홍보","관광축제이벤트 프로모션"]},{"d":"네트워크관리","t":["관광축제이벤트 유관기관 관리","관광축제이벤트 주관부처 협력"]},{"d":"산업지원","t":["여행사 네트워크 및 민원 관리"]},{"d":"사업운영","t":["관광축제이벤트 운영","관광축제이벤트 현장관리","관광축제이벤트 산업·재난안전 관리","이벤트 연계 외래관광객 유지 지원 및 기업·기관 상생협력 대응","글로벌 축제 인증"]}],"pk":"D"},{"cat":"일반직","mid":"관광콘텐츠","name":"관광자원개발","type":"통합형","div":"관광산업본부","team":["관광자원개발팀"],"ov":"관광자원개발 사업목표 달성을 위해 관광자원개발 사업을 기획하고, 홍보마케팅 및 프로모션, 산업지원, 서울등산관광센터 운영관리, 서울달 관광자원 운영관리 등 업무를 수행한다.","src":["관광자원개발 사업운영"],"duties":[{"d":"사업기획","t":["서울 등산관광 활성화 사업 기획","서울달 운영 사업 기획","서울관광 푸드 페스티벌 사업 기획"]},{"d":"광고·홍보마케팅 / 프로모션","t":["사업별 공식 SNS 및 웹페이지 운영","홍보 콘텐츠 기획·제작 및 홍보물 관리","글로벌 하이킹 메이트 운영","서울달 관광자원 및 서울관광 푸드 페스티벌 관련 프로모션"]},{"d":"네트워크 관리","t":["서울 등산관광 유관기관 네트워크 관리","서울달 유관기관 네트워크 관리","서울관광 푸드 페스티벌 유관기관 네트워크 관리"]},{"d":"산업지원","t":["서울달 관광산업 연계 및 민관 협력 기반 산업 지원","서울관광 푸드 페스티벌 미식업계 연계 및 기반 산업 지원"]},{"d":"사업운영","t":["서울 등산관광센터 운영 및 환경 조성","서울 등산관광 프로그램 운영 및 관리","사업별 공정 및 실적 관리, 사업비 정산 및 보고","서울달 관광자원 운영관리","서울달 서울시 보고 및 업무 협업","서울달 운영 현장 인프라 관리","서울달 예약 플랫폼 관리","서울관광 푸드 페스티벌 행사 운영 및 현장안전 관리"]}],"pk":"D"},{"cat":"일반직","mid":"관광인프라","name":"관광인프라","type":"통합형","div":"관광산업본부","team":["관광인프라팀"],"ov":"관광인프라 사업목표 달성을 위해 관광인프라 사업을 기획하고, 홍보마케팅 및 프로모션, 산업지원, 종합관광정보센터-다누림관광센터 관리운영, 기념품 및 패스 판매-정산 등 업무를 수행한다.","src":["관광인프라 사업운영"],"duties":[{"d":"사업기획","t":["관광인프라 사업기획","관광정보센터 운영계획","서울한류체험센터(서울컬쳐라운지) 운영계획"]},{"d":"광고·홍보마케팅 / 프로모션","t":["사업별 SNS 채널 및 홈페이지 운영 관리","서울관광재단 전사 온·오프라인 마케팅 관리","서울컬쳐라운지 온오프라인 홍보마케팅","홍보 콘텐츠 기획·제작 및 홍보물 관리"]},{"d":"네트워크관리","t":["관광인프라 부처 협력 및 대응","유관기관 협력 네트워크 관리"]},{"d":"산업지원","t":["서울스테이 업계 지원사업"]},{"d":"사업운영","t":["종합관광정보센터 운영","도시민박업 및 한옥체험업 활성화 관리","관광인프라 사업 바우처 관리","서울한류체험센터(서울컬쳐라운지) 운영 정산, 실적관리","사업예산 및 정산관리","기념품 및 패스 판매·정산"]}],"pk":"D"},{"cat":"전문직","mid":"관광마케팅","name":"외국어 콘텐츠 지원","type":"특화형","div":"국제관광·MICE본부","team":["MICE마케팅팀","디지털마케팅팀"],"ov":"디지털마케팅 및 MICE마케팅 사업목표 달성을 위해 사업을 기획하고, 홍보마케팅 및 프로모션, 산업지원, 소셜미디어(4개어권 12채널) 운영, 외국 번역 및 검수 등 업무를 지원한다.","src":["외국어 지원(전문직)"],"duties":[{"d":"사업기획","t":["타깃 시장별 관광트렌드 조사 및 데이터 분석"]},{"d":"광고·홍보마케팅 / 프로모션","t":["서울관광 글로벌 캠페인 및 재단 사업 온라인 홍보 지원","소셜미디어 어권별 캠페인 운영","채널별(웹/앱/SNS/유튜브) 활성화 이벤트 및 프로모션 운영"]},{"d":"네트워크 관리","t":["대내외 유관기관 협력 네트워크 구축"]},{"d":"산업지원","t":["외국어 번역 및 검수, 자문 등 전사 외국어 업무 지원"]},{"d":"사업운영","t":["채널별(웹/앱/SNS/유튜브) 콘텐츠 운영"]}],"pk":"F"},{"cat":"전문직","mid":"관광인프라","name":"관광센터운영","type":"통합형","div":"관광산업본부","team":["관광인프라팀","예술상생관광팀"],"ov":"관광인프라 및 예술상생관광 사업목표 달성을 위해 사업을 기획하고, 홍보마케팅 및 프로모션, 산업지원, 종합관광정보센터·다누림관광센터·컬처라운지 관리운영, 기념품 및 패스 판매-정산 등 업무를 지원한다.","src":["관광센터운영(전문직)"],"duties":[{"d":"네트워크 관리","t":["유관기관 대외 협력 네트워크 활성화"]},{"d":"사업운영","t":["종합관광정보센터 운영 및 활성화","다누림관광센터 운영 및 활성화","무장애 관광정보 제공 및 상담","홍보물 및 기념품 배포 및 재고 관리","기념품 및 패스 판매 및 재고·매출 관리","관광정보센터 SNS 계정 관리","서울컬처라운지 운영 및 활성화"]}],"pk":"G"}], PATHS={"A":{"label":"기획경영 · 경영기획","탐색기":"기획예산/성과관리 실무(초급) → 경영지원 실무(초급) → 사업운영 실무(초급)","심화기":"기획예산/성과관리 실무(중급·고급) → 인사관리/감사 실무(초급·중급·고급)","활용기":"인사관리 총괄 → 사업운영 총괄 → 기획예산 총괄"},"B":{"label":"기획경영 · 경영관리","탐색기":"인사관리/경영지원 실무(초급) → 기획예산/성과관리 실무(초급) → 사업운영 실무(초급)","심화기":"인사관리/경영지원 실무(중급·고급) → 홍보/감사 실무(초급·중급·고급)","활용기":"경영지원 총괄 → 사업운영 총괄 → 인사관리 총괄"},"C":{"label":"사업관리 · 국제관광·MICE","탐색기":"국제관광·MICE 사업운영 실무(초급) → 경영기획 및 관리 실무(초급) → 관광산업 사업운영 실무(초급)","심화기":"국제관광·MICE 사업운영 실무(중급·고급) → 관광산업 사업운영 실무(중급·고급)","활용기":"국제관광·MICE 총괄 → 관광산업 총괄 → 경영기획 및 관리 총괄"},"D":{"label":"사업관리 · 관광산업","탐색기":"관광산업 사업운영 실무(초급) → 경영기획 및 관리 실무(초급) → 국제관광·MICE 사업운영 실무(초급)","심화기":"관광산업 사업운영 실무(중급·고급) → 국제관광·MICE 사업운영 실무(중급·고급)","활용기":"관광산업 총괄 → 국제관광·MICE 총괄 → 경영기획 및 관리 총괄"},"E":{"label":"통합형 · 전문직무","탐색기":"재무회계 실무(초급) → 경영기획 및 관리 실무(초급) → 사업운영 실무(초급)","심화기":"재무회계 실무(중급) → 재무회계 실무(고급)","활용기":"경영관리 총괄 → 사업운영 총괄"},"F":{"label":"특화형 · 전문가트랙","note":"직무순환을 제한하고 스페셜리스트로 성장합니다. 일반직은 개인 희망에 따라 직군 내 통합형 경력경로로 전환할 수 있습니다."},"G":{"label":"전문직 · 관광센터 운영지원","탐색기":"관광센터 운영지원 실무(초급)","심화기":"관광센터 운영지원 실무(중급·고급)"}};
+const LV=['초급','중급','고급'];
+const COURSE_MAP=new Map();
+EDU.forEach(b=>LV.forEach(l=>b[l].forEach(c=>{ if(!COURSE_MAP.has(c.t)) COURSE_MAP.set(c.t,{mid:b.mid,lv:l,m:c.m}); })));
+const COURSES=[...COURSE_MAP.entries()].map(([t,v])=>({t,...v})).sort((a,b)=>a.mid.localeCompare(b.mid,'ko')||a.t.localeCompare(b.t,'ko'));
+/* 수기 영역 목록은 '본인이 이수한 과정'만 보여준다.
+   이미 자동으로 들어간 과정과 다른 줄에서 고른 과정은 제외. */
+function myCourseList(sel){
+  const taken=new Set(eduRows.filter(r=>r.name && r.name!==sel).map(r=>r.name));
+  return CERTS.filter(c=>c.course && !taken.has(c.course));
+}
+function courseOptions(sel){
+  const list=myCourseList(sel);
+  if(!CERTS.length) return '<option value="">수료 이력을 먼저 불러오세요</option>';
+  if(!list.length)  return '<option value="">추가할 수료 과정이 없습니다</option>';
+  const g={}; list.forEach(c=>{ const k=c.mid||'직무 분류 없음'; (g[k]=g[k]||[]).push(c); });
+  return '<option value="">선택</option>'+Object.keys(g).sort((a,b)=>a.localeCompare(b,'ko')).map(k=>
+    '<optgroup label="'+esc(k)+'">'+g[k].map(c=>
+      '<option value="'+esc(c.course)+'"'+(c.course===sel?' selected':'')
+      +'>'+esc(c.course)+(c.hrs?' · '+esc(c.hrs)+'시간':'')+'</option>').join('')+'</optgroup>').join('');
+}
+const GRADES={'일반직':['1급','2급','3급','4급','5급','6급'],'전문직':['가급','나급','다급','라급']};
+const GRADE_STAGE={'6급':'탐색기','5급':'탐색기','4급':'심화기','3급':'심화기',
+  '라급':'탐색기','다급':'심화기','나급':'심화기','가급':'심화기'};
+const STAGE_OPTS={
+ '일반직':[['탐색기','탐색기 · 5~6급 (2년 주기 · 직무 탐색)'],
+          ['심화기','심화기 · 3~4급 (4년 주기 · 전문역량 심화)'],
+],
+ '전문직':[['탐색기','탐색기 · 라급 (직무 적성과 역량을 탐색하는 단계)'],
+          ['심화기','심화기 · 가~다급 (직무 전문성과 역량을 강화하는 단계)']]};
+const $=id=>document.getElementById(id);
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+/* ═══ 계획서 ═══ */
+let GEN = [], MIDS = [];
+function gubun(){ return $('gubun').value || '일반직'; }
+function rebuildStages(){
+  const g=gubun(), sel=$('stage'), prev=sel.value;
+  sel.innerHTML='<option value="">선택</option>';
+  STAGE_OPTS[g].forEach(([v,t])=>{ const o=document.createElement('option'); o.value=v; o.textContent=t; sel.appendChild(o); });
+  if(prev && STAGE_OPTS[g].some(x=>x[0]===prev)) sel.value=prev; else if(prev) updateStd();
+}
+function rebuildGrades(keep){
+  const g=gubun(), sel=$('grade'), prev = keep ? sel.value : '';
+  sel.innerHTML='<option value="">선택</option>';
+  GRADES[g].forEach(v=>{ const o=document.createElement('option'); o.value=v; o.textContent=v; sel.appendChild(o); });
+  if(prev && GRADES[g].includes(prev)) sel.value=prev;
+  $('gubunNote').textContent = g==='일반직' ? '일반직 직급 체계 (1~6급)' : '전문직 직급 체계 (가~라급)';
+  rebuildStages();
+  onGrade(true);
+}
+let lastSug='';
+function onGrade(silent){
+  const v=$('grade').value, sug=GRADE_STAGE[v]||'';
+  $('gradeNote').textContent = v ? (sug ? '표준 경력단계 : '+sug : '') : (gubun()==='일반직'?'1급 ~ 6급 중 선택':'가급 ~ 라급 중 선택');
+  if(!v){ $('stageNote').textContent=''; return; }
+  if(sug && (!$('stage').value || $('stage').value===lastSug)){ $('stage').value=sug; updateStd(); updateTiming(); applyStageToGoal(); }
+  lastSug=sug;
+  $('stageNote').textContent = (gubun()==='일반직' && sug==='심화기')
+    ? '직급을 기준으로 제안한 값입니다. 맞지 않으면 바꿔 주세요.'
+    : '직급 기준 제안값입니다. 실제와 다르면 직접 선택해 주세요.';
+}
+/* 도달점 — 중분류 기준 총괄 목록과 직무 참고표 */
+function buildGoalRef(){
+  const dl=$('goalList'), rb=$('midrefBody');
+  if(dl) dl.innerHTML = MIDS.map(m=>'<option>'+esc(m)+' 총괄</option>').join('')
+    + '<option>해당 분야 전문인재(스페셜리스트)</option>';
+  if(rb) rb.innerHTML = MIDS.map(m=>{
+    const js=GEN.filter(c=>c.mid===m);
+    return '<div class="mrow"><b>'+esc(m)+'</b><span>'
+      + js.map(j=>esc(j.name)+(j.type!=='통합형'?' <em>['+(j.type==='특화형'?'특화':'전문직무')+']</em>':'')).join(', ')
+      + '</span></div>';
+  }).join('');
+}
+
+/* 탐색기는 도달점을 묻지 않음 */
+function applyStageToGoal(){
+  const explore = $('stage').value==='탐색기';
+  onCurJob();
+  const fields=$('goalFields'), ref=$('midref');
+  if(fields) fields.style.display = explore ? 'none' : '';
+  if(ref) ref.style.display = explore ? 'none' : '';
+  if(explore){
+    if(!getDir('goalDir')) setDir('goalDir','미정');
+    $('goal').value=''; 
+  }
+}
+
+function rebuildJobLists(keep){
+  GEN = CLS.filter(c=>c.cat===gubun());
+  MIDS = [...new Set(GEN.map(c=>c.mid))];
+  const cj=$('curJob'), prev = keep ? cj.value : '';
+  cj.innerHTML='<option value="">선택</option>';
+  GEN.forEach(c=>jobOptions(c).forEach(x=>{
+    const o=document.createElement('option');
+    o.value=x.v;
+    o.textContent=x.v + ' — 중분류('+c.mid+')';
+    o.dataset.ct=c.type; o.dataset.pk=c.pk; o.dataset.team=c.team.join(' · '); cj.appendChild(o); }));
+  if(prev && GEN.some(c=>c.name===baseName(prev))) cj.value=prev;
+  ['s1Mid','s2Mid'].forEach(id=>{
+    const sel=$(id), pv = keep ? sel.value : '';
+    sel.innerHTML='<option value="">선택</option>';
+    MIDS.forEach(m=>{ const o=document.createElement('option'); o.value=m; o.textContent=m; sel.appendChild(o); });
+    if(pv && MIDS.includes(pv)) sel.value=pv;
+    fillJobs(id, id.replace('Mid','Job'));
+  });
+  onCurJob();
+  buildGoalRef();
+  eduHint('s1'); eduHint('s2');
+  updateTiming();
+}
+const CTDESC={
+ '통합형':'여러 직무를 순환하며 관리자로 성장하는 경로입니다. 커리어필드 내 직무 순환이 표준입니다.',
+ '통합형-전문직무':'통합형에 속하나 전문성이 요구되는 직무로, 순환 내에서도 해당 전문성을 축적하며 신중한 이동이 권장됩니다.',
+ '특화형':'직무순환이 제한되는 직무로 전문성 심화가 표준 경로입니다. 개인 희망에 따라 직군 내 통합형 경로로 전환할 수 있습니다.'};
+
+
+const ANY='중분류 전체';
+/* 같은 직무지만 근무지가 나뉘는 경우 */
+const SITES={'관광센터운영':['관광정보센터','서울다누림관광센터']};
+const baseName = v => String(v||'').replace(/\s*\([^)]*\)\s*$/,'');
+function jobOptions(c){
+  const sites=SITES[c.name];
+  if(!sites) return [{v:c.name, t:c.name+' — '+c.team.join('·')}];
+  return sites.map(x=>({v:c.name+' ('+x+')', t:c.name+' — '+x+' 근무'}));
+}
+function fillJobs(midId,jobId){
+  const mid=$(midId).value, js=$(jobId); js.innerHTML='<option value="">선택</option>';
+  if(mid){
+    const o=document.createElement('option');
+    o.value=ANY; o.textContent=ANY+' — 분야 전반을 희망';
+    js.appendChild(o);
+  }
+  GEN.filter(c=>c.mid===mid).forEach(c=>jobOptions(c).forEach(x=>{
+    const o=document.createElement('option'); o.value=x.v; o.textContent=x.t; js.appendChild(o); }));
+}
+function curCT(){ const s=$('curJob'); const o=s.options[s.selectedIndex];
+  return o?{ct:o.dataset.ct||'',pk:o.dataset.pk||'',team:o.dataset.team||''}:{ct:'',pk:'',team:''}; }
+function onCurJob(){
+  const {ct,team}=curCT();
+  $('curTeam').value = team || '';
+  $('ctype').value = ct? ({'통합형':'통합형','통합형-전문직무':'통합형 · 전문직무','특화형':'특화형'}[ct]) : '';
+  $('ctypeNote').textContent = ct?CTDESC[ct]:'';
+  const gn=$('goalNote');
+  if(gn){
+    gn.innerHTML = ($('stage').value==='탐색기')
+      ? '탐색기에는 아직 정하지 않아도 괜찮습니다.<br>여러 직무를 경험하며 찾아가는 시기입니다.'
+      : (ct==='특화형')
+        ? '현 직무는 특화형이라 전문가 경로가 표준입니다.<br>희망에 따라 통합형(관리자) 경로로 전환할 수 있습니다.'
+        : '통합형은 관리자 경로, 특화형은 전문가 경로가 표준입니다.<br>현 직무의 경력유형과 달라도 괜찮습니다.';
+  }
+  const curName=$('curJob').value, curObj=GEN.find(c=>c.name===baseName(curName));
+  $('nowMid').value = curObj ? curObj.mid : '';
+  $('nowJob').value = curName || '';
+  updateStd();
+}
+const CYC={'탐색기':2,'심화기':4,'활용기':3};
+function updateTiming(){
+  const st=$('stage').value, n=CYC[st];
+  const cards=document.querySelectorAll('.pathcard:not(.now):not(.goal) .stg');
+  if(cards[0]) cards[0].innerHTML='1단계'+(n?'<small>약 '+n+'년 뒤</small>':'');
+  if(cards[1]) cards[1].innerHTML='2단계'+(n?'<small>약 '+(n*2)+'년 뒤</small>':'');
+  const h1=$('h-s1'), h2=$('h-s2');
+  if(h1) h1.textContent = n ? ('다음에 맡고 싶은 직무입니다. '+st+'는 '+n+'년마다 이동합니다.') : '다음에 맡고 싶은 직무입니다.';
+}
+function updateStd(){
+  const st=$('stage').value, {ct,pk}=curCT(), box=$('stdBox');
+  if(!st && !pk){ box.classList.remove('show'); return; }
+  const p=PATHS[pk]; let h='<span class="ht">표준경력경로 안내</span>';
+  if(p){
+    h+='<b>'+esc(p.label)+'</b>';
+    if(p.note) h+='<div class="lv">'+esc(p.note)+'</div>';
+    const stages=(st?[st]:['탐색기','심화기','활용기']).filter(x=>p[x]);
+    if(stages.length) stages.forEach(x=>{ h+='<div class="lv"><u>'+x+'</u>'+esc(p[x])+'</div>'; });
+    else if(st) h+='<div class="lv" style="color:var(--muted)">이 경로에는 '+esc(st)+' 단계가 따로 정해져 있지 않습니다.</div>';
+  } else {
+    h+='<div class="lv" style="color:var(--muted)">아래에서 <b>현 담당 직무</b>를 고르면 그 직무의 표준경력경로가 표시됩니다.</div>';
+  }
+  if(ct) h+='<div class="lv" style="color:var(--muted)">'+esc(CTDESC[ct])+'</div>';
+  box.innerHTML=h; box.classList.add('show');
+}
+function eduHint(p){
+  const mid=$(p+'Mid').value, job=$(p+'Job').value, box=$('hint-'+p);
+  if(!mid){ box.classList.remove('show'); return; }
+  const jobs=GEN.filter(c=>c.mid===mid);
+  const h='<span class="ht">['+esc(mid)+'] 중분류에 속한 직무</span>'+
+    jobs.map(j=>'<span class="chip'+(j.name===baseName(job)?' on':'')+'"><b>'+esc(j.name)+'</b> · '+esc(j.team.join('·'))+(j.type!=='통합형'?' ['+(j.type==='특화형'?'특화':'전문직무')+']':'')+'</span>').join('');
+  box.innerHTML=h; box.classList.add('show');
+}
+['s1Mid','s2Mid'].forEach(id=>$(id).addEventListener('change',()=>{
+  fillJobs(id,id.replace('Mid','Job')); eduHint(id.slice(0,2)); syncCerts(); autosave(); }));
+['s1Job','s2Job'].forEach(id=>$(id).addEventListener('change',()=>{ eduHint(id.slice(0,2)); autosave(); }));
+$('curJob').addEventListener('change',()=>{onCurJob();autosave();});
+$('gubun').addEventListener('change',()=>{ $('stage').value=''; lastSug=''; rebuildGrades(false); rebuildJobLists(true); updateStd(); updateTiming(); applyStageToGoal(); autosave(); });
+$('grade').addEventListener('change',()=>{ onGrade(); autosave(); });
+$('stage').addEventListener('change',()=>{updateStd();updateTiming();applyStageToGoal();autosave();});
+
+document.querySelectorAll('.dirtog').forEach(tg=>tg.querySelectorAll('.opt').forEach(o=>
+  o.addEventListener('click',()=>{ tg.querySelectorAll('.opt').forEach(x=>x.classList.remove('on')); o.classList.add('on'); autosave(); })));
+const getDir=p=>{const e=document.querySelector('.dirtog[data-for="'+p+'"] .opt.on'); return e?e.dataset.v:'';};
+const setDir=(p,v)=>document.querySelectorAll('.dirtog[data-for="'+p+'"] .opt').forEach(o=>o.classList.toggle('on',o.dataset.v===v));
+
+let licRows=[];
+function addLic(){ licRows.push({kind:'자격증',name:'',score:'',date:''}); renderLic(); autosave(); }
+function rmLic(i){ licRows.splice(i,1); renderLic(); autosave(); }
+function renderLic(){
+  if(!licRows.length) licRows.push({kind:'자격증',name:'',score:'',date:''});
+  $('licList').innerHTML = licRows.map((r,i)=>{
+    const lang = r.kind==='어학';
+    return '<div class="licrow">'
+      + '<select onchange="licRows['+i+'].kind=this.value;renderLic();autosave()">'
+        + ['자격증','어학'].map(k=>'<option'+(r.kind===k?' selected':'')+'>'+k+'</option>').join('')
+      + '</select>'
+      + '<input placeholder="'+(lang?'시험명 (예: TOEIC)':'자격증명 (예: 정보처리기사)')+'" value="'+esc(r.name)+'"'
+        + ' oninput="licRows['+i+'].name=this.value;autosave()">'
+      + '<input placeholder="'+(lang?'점수·등급':'발급기관')+'" value="'+esc(r.score)+'"'
+        + ' oninput="licRows['+i+'].score=this.value;autosave()">'
+      + '<input type="month" value="'+esc(r.date)+'" oninput="licRows['+i+'].date=this.value;autosave()">'
+      + '<button class="rm" onclick="rmLic('+i+')" title="삭제">×</button></div>';
+  }).join('');
+}
+
+let CERTS=[];            // 휴넷 수료 이력 (사번·성명 일치 시 서버에서 받음)
+let certOff=new Set();   // 사용자가 지운 자동 항목
+let eduRows=[];
+
+/* 1·2단계 희망 중분류와 연계된 수료 과정만 골라 자동으로 채운다 */
+let ME=null;
+/* 명단의 직급 표기가 '4', '4급', ' 4 급' 처럼 제각각이어도 맞춘다 */
+function normGrade(v){
+  v=String(v||'').replace(/\s+/g,'');
+  if(!v) return '';
+  if(/^[1-6]$/.test(v)) return v+'급';
+  if(/^[가-라]$/.test(v)) return v+'급';
+  return v;
+}
+function applyMeFields(){
+  if(!ME) return;
+  const note=$('gradeNote');
+  let changed=false;
+
+  // 구분 — 명단 I열이 비어 있으면 사번 앞자리로 판단
+  const gb = ME.gubun || (String(ME.empno||$('empno').value).toUpperCase().startsWith('FT') ? '일반직' : '전문직');
+  if(gb && $('gubun').value!==gb){
+    $('gubun').value=gb; rebuildGrades(false); rebuildJobLists(false); changed=true;
+  }
+
+  const g=normGrade(ME.grade);
+  if(g && !$('grade').value){
+    if([...$('grade').options].some(o=>o.value===g)){
+      $('grade').value=g; onGrade(); changed=true;
+    } else {
+      note.textContent='인사기록의 직급("'+ME.grade+'")이 목록에 없어 자동 입력하지 못했습니다. 직접 골라 주세요.';
+      return;
+    }
+  } else if(!g){
+    note.textContent='인사기록에 직급이 비어 있습니다. 직접 골라 주세요.';
+    return;
+  }
+  if(changed) note.textContent='인사기록에서 구분과 직급을 가져왔습니다. 맞지 않으면 바꿔 주세요.';
+}
+function applyMeStage(){
+  if(!ME || !ME.stage) return;
+  const sel=$('stage');
+  if(!sel.value && [...sel.options].some(o=>o.value===ME.stage)){
+    sel.value=ME.stage; updateStd(); updateTiming(); applyStageToGoal();
+    $('stageNote').textContent='인사기록의 경력단계를 가져왔습니다. 맞지 않으면 바꿔 주세요.';
+  }
+}
+function showMe(){
+  const b=$('meBox'); if(!b) return;
+  if(!ME){
+    if(ID_STATE==='ok'){
+      b.className='mebox show warn';
+      b.innerHTML='<span class="tag">확인 불가</span><b>인사기록에서 순환주기 현황을 불러오지 못했습니다</b>'
+        +'<span>서버가 이전 버전일 수 있습니다. 인사팀에 알려 주세요. 계획서 작성과 제출에는 지장이 없습니다.</span>';
+    } else { b.className='mebox'; b.innerHTML=''; }
+    return;
+  }
+  const t=ME.tenure?ME.tenure+'년':'—', c=ME.cycle?ME.cycle+'년':'—';
+  const base='현 직무 '+t+' 근무 · '+(ME.stage||'—')+'는 '+c+' 주기';
+  let cls='', tag='', head='', sub='', badge='';
+  if(String(ME.duty).toUpperCase()==='Y'){
+    cls=''; tag='작성 제외'; head='보직자는 계획서 작성 대상이 아닙니다';
+    sub='보직자의 경력개발과 순환은 보직관리 절차에서 따로 다룹니다.';
+  } else if(ME.due==='도래'){
+    cls='due'; tag='도래'; badge='면담 권고'; head='순환주기가 도래했습니다';
+    sub=base+'. 이번 전보 검토 대상에 포함됩니다. 면담을 원하시면 마지막 항목에서 신청해 주세요.';
+  } else if(ME.due==='도래예정'){
+    cls='soon'; tag='도래 예정'; badge='면담 권고'; head='곧 순환주기가 도래합니다';
+    sub=base+'. 이번 전보 검토에서 함께 살펴봅니다. 면담을 원하시면 마지막 항목에서 신청해 주세요.';
+  } else if(ME.due==='제외'){
+    cls=''; tag='작성 제외'; head='현재 작성 대상이 아닙니다';
+    sub='휴직·파견 등으로 이번 회차 대상에서 제외되어 있습니다. 궁금한 점은 인사팀에 문의해 주세요.';
+  } else {
+    cls=''; tag='해당 없음'; head='아직 순환주기에 이르지 않았습니다';
+    sub=base+'. 면담을 원하시면 마지막 항목에서 신청해 주세요.';
+  }
+  b.className='mebox show '+cls;
+  b.innerHTML='<span class="tag">'+tag+'</span>'
+    +'<b>'+head+(badge?'<span class="rec">'+badge+'</span>':'')+'</b>'
+    +'<span>'+esc(sub)+'</span>';
+}
+
+function certMsg(cls,html){ const b=$('certNote'); b.className='certnote show '+cls; b.innerHTML=html; }
+
+function fetchCerts(){
+  const e=normEmpno(), n=$('name').value.trim();
+  if(!e || !n){
+    certMsg('err','<b>사번과 성명을 먼저 입력해 주세요.</b> 기본 정보 1번 항목입니다.');
+    $(e?'name':'empno').focus(); return;
+  }
+  const btn=$('certBtn'); btn.disabled=true; btn.textContent='불러오는 중…';
+  certMsg('wait','휴넷 수료 이력을 찾는 중입니다…');
+  const done=()=>{ btn.disabled=false; btn.textContent='내 수료 이력 불러오기'; };
+
+  fetch(ENDPOINT+'?verify=1&empno='+encodeURIComponent(e)+'&name='+encodeURIComponent(n))
+    .then(r=>r.json())
+    .then(res=>{
+      done();
+      if(res.result!=='success'){
+        certMsg('err','<b>서버에서 오류가 돌아왔습니다.</b> 인사팀에 문의해 주세요.'); return;
+      }
+      if(!('certs' in res)){
+        certMsg('err','<b>연결된 서버가 이전 버전입니다.</b> Apps Script를 새 버전으로 배포해야 수료 이력을 가져올 수 있습니다.'); return;
+      }
+      if(!res.exists){
+        certMsg('err','<b>명단에 없는 사번입니다.</b> 사번을 다시 확인해 주세요.'); return;
+      }
+      if(!res.match){
+        certMsg('err','<b>사번과 성명이 명단과 다릅니다.</b> 두 칸을 다시 확인해 주세요.'); return;
+      }
+      ID_STATE='ok'; setIdChk('ok','확인되었습니다');
+      ME=res.me||null; showMe(); applyMeFields(); applyMeStage();
+      CERTS=Array.isArray(res.certs)?res.certs:[];
+      certOff=new Set();
+      syncCerts();
+    })
+    .catch(()=>{
+      done();
+      certMsg('err','<b>서버에 연결하지 못했습니다.</b> 이 파일을 컴퓨터에서 직접 열면 브라우저가 외부 연결을 막습니다. '
+        +'주소가 file:// 로 시작하면 사내 주소로 다시 열어 주세요. 그래도 안 되면 인사팀에 문의해 주세요.');
+    });
+}
+
+function syncCerts(){
+  const want=[$('s1Mid').value, $('s2Mid').value].filter(Boolean);
+  const manual=eduRows.filter(r=>!r.auto);
+  let auto=[];
+  if(CERTS.length && want.length){
+    const m1=$('s1Mid').value, m2=$('s2Mid').value;
+    auto=CERTS.filter(c=>c.mid && want.some(m=>c.mid.split('/').map(x=>x.trim()).includes(m)))
+      .filter(c=>!certOff.has(c.course))
+      .map(c=>{
+        const ms=c.mid.split('/').map(x=>x.trim());
+        const step = (m1 && ms.includes(m1)) ? 1 : 2;
+        return {src:'hrd',name:c.course,hrs:String(c.hrs||''),auto:true,period:c.period||'',
+                step:step, mid:(step===1?m1:m2)};
+      })
+      .sort((a,b)=>a.step-b.step);
+  }
+  eduRows=auto.concat(manual);
+  renderEdu2(); updateCertNote();
+}
+function updateCertNote(){
+  const box=$('certNote'); if(!box) return;
+  const want=[$('s1Mid').value, $('s2Mid').value].filter(Boolean);
+  const auto=eduRows.filter(r=>r.auto).length;
+  const off=certOff.size;
+  const show=(cls,html)=>{ box.className='certnote show '+cls; box.innerHTML=html; };
+
+  if(ID_STATE!=='ok'){
+    show('wait','<b>아직 불러오지 않았습니다.</b> 사번과 성명을 입력하고 위 버튼을 누르면 수료 이력을 찾아옵니다.');
+    return;
+  }
+  if(!CERTS.length){
+    show('wait','<b>이 사번으로 등록된 휴넷 수료 이력이 없습니다.</b> 들으신 교육이 있다면 아래에서 직접 추가해 주세요. 수료한 교육이 있는데도 이 문구가 보이면 인사팀에 알려 주세요.');
+    return;
+  }
+  if(!want.length){
+    show('','<b>수료 이력 '+CERTS.length+'건을 확인했습니다.</b> 위에서 1·2단계 희망 중분류를 고르면 관련 과정만 자동으로 채워집니다.');
+    return;
+  }
+  if(!auto && !off){
+    show('none','<b>희망 직무와 연계된 수료 과정이 없습니다.</b> 수료 이력 '+CERTS.length+'건은 모두 다른 분야 과정입니다. 비워 두셔도 되고, 들으신 교육이 있다면 아래에서 직접 추가해 주세요.');
+    return;
+  }
+  show('','<b>수료 이력 '+CERTS.length+'건 중 '+auto+'건을 불러왔습니다.</b> '
+    + '희망 직무와 연계되지 않은 과정 '+(CERTS.length-auto-off)+'건은 제외했습니다.'
+    + (off? ' 직접 지운 '+off+'건은 다시 불러오지 않습니다.':''));
+}
+function addEdu(){ eduRows.push({src:'hrd',name:'',hrs:''}); renderEdu2(); autosave(); }
+function rmEdu(i){
+  const r=eduRows[i];
+  if(r && r.auto) certOff.add(r.name);
+  eduRows.splice(i,1); renderEdu2(); updateCertNote(); autosave();
+}
+function setEduSrc(i,src){ eduRows[i]={src,name:'',hrs:''}; renderEdu2(); autosave(); }
+function onEduCourse(i,title){
+  const c=CERTS.find(x=>x.course===title);
+  eduRows[i].name=title||''; eduRows[i].hrs=c? String(c.hrs||'') : (eduRows[i].hrs||'');
+  renderEdu2(); autosave();
+}
+function renderEdu2(){
+  if(!eduRows.some(r=>!r.auto)) eduRows.push({src:'hrd',name:'',hrs:''});
+  const html = eduRows.map((r,i)=>{
+    if(r.auto) return '<div class="edugroup auto">'
+      + '<div class="autorow"><span class="badge s'+(r.step||1)+'">'
+        + (r.step===2?'2단계':'1단계') + (r.mid?' · '+esc(r.mid):'') + '</span>'
+      + '<b>'+esc(r.name)+'</b>'
+      + '<span class="hrs">'+esc(r.hrs)+'시간</span>'
+      + (r.period?'<span class="per">'+esc(r.period)+'</span>':'')
+      + '<button class="rm" onclick="rmEdu('+i+')" title="목록에서 빼기">×</button></div></div>';
+    const isHrd=r.src==='hrd';
+    return '<div class="edugroup">'+
+      '<div class="esrc">'+
+        '<button type="button" class="'+(isHrd?'on':'')+'" onclick="setEduSrc('+i+',\'hrd\')">내 수료 과정에서 선택</button>'+
+        '<button type="button" class="'+(!isHrd?'on':'')+'" onclick="setEduSrc('+i+',\'etc\')">그 외 과정 직접 입력</button>'+
+      '</div>'+
+      '<div class="edurow">'+
+        '<div class="f">'+(isHrd
+          ? '<select onchange="onEduCourse('+i+',this.value)">'+courseOptions(r.name)+'</select>'
+          : '<input placeholder="교육 과정명" value="'+esc(r.name)+'" oninput="eduRows['+i+'].name=this.value;autosave()">')+
+        '</div>'+
+        '<div class="f">'+(isHrd
+          ? '<input readonly value="'+esc(r.hrs)+'" placeholder="이수시간(h)">'
+          : '<input placeholder="이수시간(h)" value="'+esc(r.hrs)+'" oninput="eduRows['+i+'].hrs=this.value;autosave()">')+
+        '</div>'+
+        '<button class="rm" onclick="rmEdu('+i+')" title="삭제">×</button>'+
+      '</div>'+
+    '</div>';
+  });
+  $('eduAuto').innerHTML = eduRows.map((r,i)=>r.auto?html[i]:'').join('')
+    || '<div class="zempty">아직 불러온 과정이 없습니다.</div>';
+  $('eduList').innerHTML = eduRows.map((r,i)=>r.auto?'':html[i]).join('');
+}
+document.querySelectorAll('textarea[maxlength]').forEach(t=>t.addEventListener('input',()=>{
+  const c=t.parentNode.querySelector('.cnt'); c.textContent=t.value.length+'/'+t.getAttribute('maxlength'); }));
+
+const F=['empno','name','gubun','grade','curJob','curTeam','ctype','stage','s1Mid','s1Job','s1Reason','s2Mid','s2Job','s2Reason','goal','strength','gap','overall'];
+const KEY='sto_cdp_form_v6';
+function collect(){ const d={}; F.forEach(f=>d[f]=$(f).value);
+  d.s1Dir=getDir('s1'); d.s2Dir=getDir('s2'); d.goalDir=getDir('goalDir'); d.edu=eduRows.filter(r=>r.name||r.hrs).map(r=>({src:r.src,name:r.name,hrs:r.hrs,auto:!!r.auto,step:r.step,mid:r.mid}));
+  d.certOff=[...certOff];
+  d.lic=licRows.filter(r=>r.name||r.score||r.date);
+  d.agreeOpt=$('agreeOpt').checked; d.confirmOk=$('confirmOk').checked;
+  d.wantInterview=$('wantInterview').checked;
+  d._saved=new Date().toISOString(); return d; }
+function restore(d){ if(!d) return;
+  if(d.gubun) $('gubun').value=d.gubun;
+  rebuildGrades(false); rebuildJobLists(false);
+  F.forEach(f=>{ if(d[f]!==undefined) $(f).value=d[f]; });
+  onGrade(true);
+  $('wantInterview').checked=!!d.wantInterview;
+  ['s1','s2'].forEach(p=>{ fillJobs(p+'Mid',p+'Job'); if(d[p+'Job']) $(p+'Job').value=d[p+'Job']; });
+  eduHint('s1'); eduHint('s2'); onCurJob(); updateTiming(); applyStageToGoal(); drawRoute();
+  setDir('s1',d.s1Dir||''); setDir('s2',d.s2Dir||''); setDir('goalDir',d.goalDir||'');
+  certOff=new Set(d.certOff||[]);
+  $('agreeOpt').checked=!!d.agreeOpt; $('confirmOk').checked=!!d.confirmOk;
+  licRows=(d.lic&&d.lic.length)?d.lic.map(r=>({kind:r.kind||'자격증',name:r.name||'',score:r.score||'',date:r.date||''})):[]; renderLic();
+  eduRows=(d.edu&&d.edu.length)?d.edu.map(r=>({src:r.src||'etc',name:r.name||'',hrs:r.hrs||'',auto:!!r.auto,step:r.step,mid:r.mid})):[]; renderEdu2();
+  document.querySelectorAll('textarea[maxlength]').forEach(t=>{
+    const c=t.parentNode.querySelector('.cnt'); c.textContent=t.value.length+'/'+t.getAttribute('maxlength'); });
+}
+function setStn(id,txt,on){
+  const el=$(id); if(!el) return;
+  el.classList.toggle('on', !!on);
+  el.querySelector('span').textContent = txt || '미작성';
+}
+function drawRoute(){
+  const cj=$('curJob').value;
+  setStn('stn0', cj || '직무 미선택', !!cj);
+  const j1=$('s1Job').value, m1=$('s1Mid').value;
+  setStn('stn1', (j1&&j1!==ANY? j1 : m1), !!m1);
+  const j2=$('s2Job').value, m2=$('s2Mid').value;
+  setStn('stn2', (j2&&j2!==ANY? j2 : m2), !!m2);
+  const g=getDir('goalDir'), gn=$('goal').value.trim();
+  setStn('stn3', gn || (g==='미정'?'탐색 중':g) || '미선택', !!(g||gn));
+}
+
+function updateReview(){
+  const box=$('review'); if(!box) return;
+  const jobTxt=(mid,job)=> !mid ? '<em>미작성</em>'
+    : (job && job!==ANY ? mid+' · '+job : mid + (job===ANY?' <em>(분야 전반)</em>':''));
+  const dir=p=>{ const v=getDir(p); return v? ' <em>'+v+'</em>':''; };
+  const gd=getDir('goalDir'), gn=$('goal').value.trim();
+  const eduN=eduRows.filter(r=>r.name).length;
+  const licN=licRows.filter(r=>r.name).length;
+
+  const path=[
+    ['now','현재',  $('curJob').value ? ($('nowMid').value+' · '+$('curJob').value) : '<em>미작성</em>', !$('curJob').value],
+    ['s1', '1단계', jobTxt($('s1Mid').value,$('s1Job').value)+dir('s1'), !$('s1Mid').value],
+    ['s2', '2단계', jobTxt($('s2Mid').value,$('s2Job').value)+dir('s2'), !$('s2Mid').value],
+    ['gl', '도달점', (gd||gn)? [gd,gn].filter(Boolean).join(' · ') : '<em>미선택</em>', false]
+  ];
+  const etc=[
+    ['선행교육',    eduN? eduN+'건' : '<em>작성 안 함</em>'],
+    ['자격증·어학', licN? licN+'건' : '<em>작성 안 함</em>']
+  ];
+  box.innerHTML =
+    '<div class="rvflow">'+path.map(r=>
+      '<div class="rvrow '+r[0]+(r[3]?' miss':'')+'"><span class="dt">'+r[1]+'</span>'
+      +'<span class="dd">'+r[2]+'</span></div>').join('')+'</div>'
+    + '<div class="rvetc">'+etc.map(r=>
+      '<div class="rvrow"><span class="dt">'+r[0]+'</span><span class="dd">'+r[1]+'</span></div>').join('')+'</div>';
+}
+
+let tmr;
+function autosave(){
+  drawRoute(); updateReview(); clearTimeout(tmr); tmr=setTimeout(()=>{
+  try{ localStorage.setItem(KEY,JSON.stringify(collect())); }catch(e){} },500); }
+document.addEventListener('input',autosave); document.addEventListener('change',autosave);
+
+/* ═══ 임시저장 · 제출 ═══ */
+/* ▼ 새 Apps Script 웹앱 URL(/exec)로 교체하세요 ▼ */
+/* ── 사번·성명 대조 ── */
+let ID_STATE='';   // '' | 'ok' | 'bad' | 'none'
+let idTimer=null;
+function setIdChk(cls,msg){
+  const b=$('idchk'); b.className='idchk'+(cls?' '+cls:''); b.textContent=msg||'';
+  $('empno').classList.toggle('badid', cls==='bad');
+}
+function normEmpno(){
+  const el=$('empno'); const v=el.value.toUpperCase().replace(/\s+/g,'');
+  if(el.value!==v){ const p=el.selectionStart; el.value=v; try{el.setSelectionRange(p,p);}catch(_){} }
+  return v;
+}
+function verifyId(){
+  const e=normEmpno(), n=$('name').value.trim();
+  ID_STATE='';
+  if(!e || !n){ setIdChk('',''); return; }
+  setIdChk('wait','확인 중…');
+  clearTimeout(idTimer);
+  idTimer=setTimeout(()=>{
+    fetch(ENDPOINT+'?verify=1&empno='+encodeURIComponent(e)+'&name='+encodeURIComponent(n))
+      .then(r=>r.json())
+      .then(res=>{
+        if(res.result!=='success'){ setIdChk('',''); return; }
+        if(!res.exists){ ID_STATE='none'; ME=null; showMe(); CERTS=[]; syncCerts(); setIdChk('warn','명단에 없는 사번입니다. 사번을 다시 확인해 주세요. (신규 입사자는 그대로 제출하셔도 됩니다)'); }
+        else if(res.match){ ID_STATE='ok';  setIdChk('ok','확인되었습니다');
+          if(!('certs' in res)){ CERTS=[]; certMsg('err','<b>연결된 서버가 이전 버전입니다.</b> Apps Script를 새 버전으로 배포해야 수료 이력을 가져올 수 있습니다.'); return; }
+          ME=res.me||null; showMe(); applyMeFields(); applyMeStage();
+          CERTS=Array.isArray(res.certs)?res.certs:[]; syncCerts(); }
+        else { ID_STATE='bad'; setIdChk('bad','사번을 다시 확인하세요. 입력하신 성명과 명단의 사번이 일치하지 않습니다.'); }
+      })
+      .catch(()=>setIdChk('',''));
+  }, 400);
+}
+
+const ENDPOINT='https://script.google.com/macros/s/AKfycbzxoQUTRMy1wJEZlu1MHZDLWReRblWeLjLTXT7tj8s_XMMDe8Ba3WjYwEovtZCswDdgjQ/exec';
+function toast(m,t){ const e=$('toast'); e.textContent=m; e.className='toast show'+(t?(' '+t):'');
+  setTimeout(()=>e.className='toast',2600); }
+function manualSave(){
+  try{ localStorage.setItem(KEY,JSON.stringify(collect()));
+    $('saveinfo').textContent='임시저장됨 · '+new Date().toLocaleTimeString('ko-KR',{hour:'2-digit',minute:'2-digit'});
+    toast('임시저장되었습니다','ok');
+  }catch(e){ toast('임시저장에 실패했습니다','err'); }
+}
+const REQUIRED=[
+  ['empno','사번'], ['name','성명'], ['gubun','구분'], ['grade','직급'],
+  ['curJob','현 담당 직무'], ['stage','경력 단계'],
+  ['s1Mid','1단계 희망 중분류'], ['s1Reason','1단계 희망 사유'], ['s2Mid','2단계 희망 중분류']
+];
+function validate(){
+  return REQUIRED.filter(([id])=>!String($(id).value||'').trim()).map(([id,label])=>({id,label}));
+}
+/* 받침 유무로 을/를 고르기 */
+function josa(w){
+  const c=String(w||'').trim().slice(-1).charCodeAt(0);
+  if(isNaN(c)) return '을';
+  if(c<0xAC00||c>0xD7A3) return '을';
+  return ((c-0xAC00)%28) ? '을' : '를';
+}
+function clearInvalid(){
+  document.querySelectorAll('.f.invalid').forEach(el=>el.classList.remove('invalid'));
+  document.querySelectorAll('.missflag').forEach(el=>el.remove());
+}
+function markInvalid(list){
+  clearInvalid();
+  list.forEach(({id,label})=>{
+    const el=$(id), f=el.closest('.f'); if(!f) return;
+    f.classList.add('invalid');
+    const tip=document.createElement('div');
+    tip.className='missflag';
+    tip.textContent = label + josa(label) + (el.tagName==='SELECT' ? ' 선택해 주세요' : ' 입력해 주세요');
+    f.appendChild(tip);
+  });
+  const first=$(list[0].id), fw=first.closest('.f')||first;
+  fw.scrollIntoView({block:'center', behavior:'smooth'});
+  setTimeout(()=>{ try{ first.focus(); }catch(e){} }, 300);
+}
+document.addEventListener('input', e=>{
+  const f=e.target.closest && e.target.closest('.f.invalid');
+  if(f && String(e.target.value||'').trim()){ f.classList.remove('invalid');
+    const t=f.querySelector('.missflag'); if(t) t.remove(); }
+});
+document.addEventListener('change', e=>{
+  const f=e.target.closest && e.target.closest('.f.invalid');
+  if(f && String(e.target.value||'').trim()){ f.classList.remove('invalid');
+    const t=f.querySelector('.missflag'); if(t) t.remove(); }
+});
+function submitForm(){
+  const miss=validate();
+  if(miss.length){
+    markInvalid(miss);
+    toast('아직 비어 있는 항목이 '+miss.length+'개 있습니다 ('+miss.map(m=>m.label).join(', ')+')','err');
+    return;
+  }
+  clearInvalid();
+  if(!$('confirmOk').checked){
+    toast('작성 내용을 확인하신 뒤 7번의 확인란을 체크해 주세요','err');
+    $('confirmOk').scrollIntoView({block:'center'}); return;
+  }
+  if(ID_STATE==='bad'){
+    toast('사번을 다시 확인하세요. 성명과 사번이 일치하지 않습니다','err');
+    $('empno').focus(); $('empno').scrollIntoView({block:'center'}); return;
+  }
+  if(!confirm('작성한 내용을 인사팀에 제출하시겠습니까?')) return;
+  const btn=$('submitBtn'); btn.disabled=true; btn.textContent='제출 중…';
+
+  let settled=false;
+  const done=(msg,type,info)=>{
+    if(settled) return; settled=true;
+    clearTimeout(guard);
+    btn.disabled=false; btn.textContent='제출';
+    toast(msg,type);
+    if(info) $('saveinfo').textContent=info+' · '+new Date().toLocaleTimeString('ko-KR',{hour:'2-digit',minute:'2-digit'});
+  };
+  // 응답이 오지 않아도 버튼이 멈춰 있지 않도록 하는 안전장치
+  const guard=setTimeout(()=>{
+    done('제출 요청을 보냈습니다. 인사팀에서 접수 여부를 확인할 수 있습니다','ok','제출 요청 전송');
+  }, 12000);
+
+  fetch(ENDPOINT,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(collect())})
+    .then(r=>r.json())
+    .then(res=>{
+      if(res.result==='success') done('제출이 완료되었습니다','ok','제출 완료');
+      else done('제출 중 오류가 발생했습니다','err');
+    })
+    .catch(()=>{ done('제출 요청을 보냈습니다. 인사팀에서 접수 여부를 확인할 수 있습니다','ok','제출 요청 전송'); });
+}
+
+['empno','name'].forEach(id=>{
+  $(id).addEventListener('input', verifyId);
+  $(id).addEventListener('blur', verifyId);
+});
+
+(function init(){
+  rebuildGrades(false); rebuildJobLists(false);
+  try{ const s=localStorage.getItem(KEY); if(s){ restore(JSON.parse(s)); } else { renderEdu2(); } }
+  catch(e){ renderEdu2(); }
+  renderLic();
+  applyStageToGoal(); drawRoute(); updateReview(); updateCertNote();
+})();
+</script>
+</body>
+</html>
